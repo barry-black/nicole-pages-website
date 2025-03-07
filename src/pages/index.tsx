@@ -5,9 +5,15 @@ export default function Home() {
   return (
     <>
       <Seo title="Nicole Pagès Thérapie" description="Description..." />
-      <Typography variant="ds-40-semibold" component="h1">
-        Site Nicole Pagès en cours de développement...
-      </Typography>
+
+      <div className="space=y=5">
+        <Typography variant="ds-40" theme="ocean-blue" component="h1">
+          Site Nicole Pagès en cours de développement
+        </Typography>
+        <Typography variant="m-19" theme="black" component="div">
+          Arrive bientôt...
+        </Typography>
+      </div>
     </>
   );
 }

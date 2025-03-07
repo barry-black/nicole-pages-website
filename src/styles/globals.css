@@ -5,6 +5,118 @@
 @layer base {
     html {
         /* font-family: 'Dancing Script', system_ui, sans-serif; */
-        font-family: 'Montserrat', system_ui, sans-serif;
+        /* font-family: 'Montserrat', system_ui, sans-serif; */
+    }
+}
+
+@layer utilities {
+    .text-pale-blue {
+        color: #d4edea;;
+    }
+    .text-sky-blue {
+        color: #13abc4;;
+    }
+    .text-ocean-blue {
+        color: #108194;
+    }
+    .text-white {
+        color: #ffffff;
+    }
+    .text-black {
+        color: #000000;
+    }
+
+    .text-ds-40 {
+        font-family: 'Dancing Script', sans-serif;
+        font-size: 40px;
+        line-height: 1.5;
+        letter-spacing: 0;
+    }
+
+    .text-ds-50 {
+        font-family: 'Dancing Script', sans-serif;
+        font-size: 50px;
+        line-height: 1.5;
+        letter-spacing: 0;
+    }
+
+    .text-ds-62-shadow {
+        font-family: 'Dancing Script', sans-serif;
+        font-size: 62px;
+        line-height: auto;
+        letter-spacing: -0.02em;
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+
+    .text-m-18-italic {
+        font-family: 'Montserrat', sans-serif;
+        font-style: italic;
+        font-size: 18px;
+        line-height: 1.5;
+        letter-spacing: 0;
+    }
+
+    .text-m-18 {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 18px;
+        line-height: 1.5;
+        letter-spacing: 0;
+    }
+
+    .text-m-19 {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 19px;
+        line-height: 1.15;
+        letter-spacing: 0;
+    }
+
+    .text-m-20 {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 20px;
+        line-height: 1.5;
+        letter-spacing: 0;
+    }
+
+    .text-m-24 {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 24px;
+        line-height: 1.5;
+        letter-spacing: 0;
+    }
+
+    .text-m-32 {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 32px;
+        line-height: 1.5;
+        letter-spacing: 0;
+    }
+
+    .text-m-36 {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 36px;
+        line-height: 1.5;
+        letter-spacing: 0;
+    }
+
+    .text-m-40 {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 40px;
+        line-height: 1.5;
+        letter-spacing: 0;
+    }
+
+    .text-m-88-shadow {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 88px;
+        line-height: auto;
+        letter-spacing: -0.02em;
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+
+    .text-m-96 {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 96px;
+        line-height: 1.5;
+        letter-spacing: 0;
     }
 }

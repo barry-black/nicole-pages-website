@@ -2,30 +2,28 @@ import clsx from "clsx";
 
 interface Props {
   variant?:
-    | "ds-40-semibold"
-    | "ds-40-bold"
-    | "ds-50-semibold"
-    | "ds-62-semibold"
-    | "m-18-mediumitalic"
-    | "m-18-medium"
-    | "m-19-regular"
-    | "m-20-medium"
-    | "m-24-semibold"
-    | "m-32-regular"
-    | "m-32-semibold"
-    | "m-36-medium"
-    | "m-40-semibold"
-    | "m-88-semibold"
-    | "m-96-semibold";
+    | "ds-40"
+    | "ds-50"
+    | "ds-62-shadow"
+    | "m-18"
+    | "m-18-italic"
+    | "m-19"
+    | "m-20"
+    | "m-24"
+    | "m-32"
+    | "m-36"
+    | "m-40"
+    | "m-88-shadow"
+    | "m-96";
   component?: "h1" | "h2" | "h3" | "h4" | "h5" | "div" | "p" | "span";
-  theme?: "black" | "gray" |"white" | "secondary";
-  weight?: "regular" | "medium";
+  theme?: "black" | "white" | "pale-blue" | "ocean-blue";
+  weight?: "regular" | "medium" | "semibold";
   className?: string;
   children: React.ReactNode;
 }
 
 export const Typography = ({
-  variant = "m-19-regular",
+  variant = "m-18",
   component: Component = "div",
   theme = "black",
   weight = "regular",
@@ -33,19 +31,83 @@ export const Typography = ({
   children,
 }: Props) => {
   let variantStyles: string = "";
+  let colorStyles: string = "";
 
   switch (variant) {
-    case "ds-40-semibold":
-      variantStyles = "text-red-500";
+    case "ds-40":
+      variantStyles = "text-ds-40";
       break;
-    case "ds-40-bold":
-      variantStyles = "text-green-500";
+    case "ds-50":
+      variantStyles = "text-ds-50";
+      break;
+    case "ds-62-shadow":
+      variantStyles = "text-ds-62-shadow";
+      break;
+    case "m-18": // default
+      variantStyles = "text-m-18";
+      break;
+    case "m-18-italic":
+      variantStyles = "text-m-18-italic";
+      break;
+    case "m-19":
+      variantStyles = "text-m-19";
+      break;
+    case "m-20":
+      variantStyles = "text-m-20";
+      break;
+    case "m-24":
+      variantStyles = "text-m-24";
+      break;
+    case "m-32":
+      variantStyles = "text-m-32";
+      break;
+    case "m-36":
+      variantStyles = "text-m-36";
+      break;
+    case "m-40":
+      variantStyles = "text-m-40";
+      break;
+    case "m-88-shadow":
+      variantStyles = "text-m-88-shadow";
+      break;
+    case "m-96":
+      variantStyles = "text-m-96";
       break;
     default:
+      variantStyles = "text-m-18";
+      break;
+  }
+
+  switch (theme) {
+    case "black": // default
+      colorStyles = "text-black";
+      break;
+    case "white":
+      colorStyles = "text-white";
+      break;
+    case "pale-blue":
+      colorStyles = "text-pale-blue";
+      break;
+    case "ocean-blue":
+      colorStyles = "text-ocean-blue";
+      break;
+    default:
+      colorStyles = "text-black";
       break;
   }
 
   return (
-    <Component className={clsx(variantStyles, weight === "medium" && "font=medium", className)}>{children}</Component>
+    <Component
+      className={clsx(
+        variantStyles,
+        colorStyles,
+        weight === "regular" && "font-normal",
+        weight === "medium" && "font-medium",
+        weight === "semibold" && "font-semibold",
+        className
+      )}
+    >
+      {children}
+    </Component>
   );
 };
