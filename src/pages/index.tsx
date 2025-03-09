@@ -9,11 +9,11 @@ export default function Home() {
 
       <div className="bg-gray-400 p-4">
         <div className="flex flex-col gap-1">
-          {" "}
           {/* gap-1 = 4px, pour 5px utilise gap-[5px] */}
-          <Button variant="topMenu">Menu</Button>
-          <Button variant="info">+ d'info</Button>
+          <Button variant="topMenu">les soins</Button>
+          <Button variant="info">+ d&apos;info</Button>
           <Button variant="callAction">Prendre rendez-vous</Button>
+          <Button variant="disabled">Prendre rendez-vous</Button>
         </div>
 
         <div className="mt-[5px] space-y-[5px]">

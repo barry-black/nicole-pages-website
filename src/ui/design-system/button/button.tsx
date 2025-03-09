@@ -1,9 +1,8 @@
 import clsx from "clsx";
 
 interface Props {
-  size?: "small" | "medium" | "large";
-  variant?: "topMenu" | "info" | "callAction" | "ico";
-  icon?: any;
+  variant?: "topMenu" | "info" | "callAction" | "disabled" | "ico";
+  // icon?: any;
   iconTheme?: "topMenu" | "info" | "gray";
   iconPosition?: "left" | "right";
   disabled?: boolean;
@@ -12,18 +11,17 @@ interface Props {
 }
 
 export const Button = ({
-  size = "medium",
+  // size = "medium",
   variant = "topMenu",
-  icon,
-  iconTheme = "topMenu",
-  iconPosition = "right",
+  // icon,
+  // iconTheme = "topMenu",
+  // iconPosition = "right",
   disabled,
-  isLoading,
+  // isLoading,
   children,
 }: Props) => {
     let variantStyles: string = "";
-    let sizeStyles: string = "";
-    let icoSizeStyles: number = 0;
+    // let icoSizeStyles: number = 0;
 
     switch (variant) {
       case "topMenu": // default
@@ -35,20 +33,11 @@ export const Button = ({
       case "callAction":
         variantStyles = "btn-callAction";
         break;
+      case "disabled":
+        variantStyles = "btn-disabled";
+        break;
       case "ico":
         variantStyles = "";
-        break;
-    }
-
-    switch (size) {
-      case "small": // default
-        sizeStyles = "";
-        break;
-      case "medium":
-        sizeStyles = "";
-        break;
-      case "large":
-        sizeStyles = "";
         break;
     }
 
