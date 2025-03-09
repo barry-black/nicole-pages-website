@@ -73,9 +73,6 @@ export const Typography = ({
     case "m-96":
       variantStyles = "text-m-96";
       break;
-    default:
-      variantStyles = "text-m-18";
-      break;
   }
 
   switch (theme) {
@@ -90,9 +87,6 @@ export const Typography = ({
       break;
     case "ocean-blue":
       colorStyles = "text-ocean-blue";
-      break;
-    default:
-      colorStyles = "text-black";
       break;
   }
 

@@ -1,0 +1,40 @@
+@layer utilities {:root {
+        --color-pale-blue: #d4edea;
+        --color-sky-blue: #13abc4;
+        --color-ocean-blue: #108194;
+        --color-dark-blue: #21416d;
+        --color-white: #ffffff;
+        --color-black: #000000;
+    }
+    .text-pale-blue {
+        color: var(--color-pale-blue);
+    }
+
+    .text-sky-blue {
+        color: var(--color-sky-blue);
+    }
+
+    .text-ocean-blue {
+        color: var(--color-ocean-blue);
+    }
+
+    .text-white {
+        color: #ffffff;
+    }
+
+    .text-black {
+        color: #000000;
+    }
+
+    .bg-sky-blue {
+        background-color: var(--color-sky-blue);
+    }
+
+    .bg-ocean-blue {
+        background-color: var(--color-ocean-blue);
+    }
+
+    .bg-pale-blue {
+        background-color: var(--color-pale-blue);
+    }
+}
