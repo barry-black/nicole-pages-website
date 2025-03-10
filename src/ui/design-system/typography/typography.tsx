@@ -35,43 +35,43 @@ export const Typography = ({
 
   switch (variant) {
     case "ds-40":
-      variantStyles = "text-ds-40";
+      variantStyles = "text-ds text-ds-40";
       break;
     case "ds-50":
-      variantStyles = "text-ds-50";
+      variantStyles = "text-ds text-ds-50";
       break;
     case "ds-62-shadow":
-      variantStyles = "text-ds-62-shadow";
+      variantStyles = "text-ds text-ds-62-shadow";
       break;
     case "m-18": // default
-      variantStyles = "text-m-18";
+      variantStyles = "text-m text-m-18";
       break;
     case "m-18-italic":
-      variantStyles = "text-m-18-italic";
+      variantStyles = "text-m text-m-18-italic";
       break;
     case "m-19":
-      variantStyles = "text-m-19";
+      variantStyles = "text-m text-m-19";
       break;
     case "m-20":
-      variantStyles = "text-m-20";
+      variantStyles = "text-m text-m-20";
       break;
     case "m-24":
-      variantStyles = "text-m-24";
+      variantStyles = "text-m text-m-24";
       break;
     case "m-32":
-      variantStyles = "text-m-32";
+      variantStyles = "text-m text-m-32";
       break;
     case "m-36":
-      variantStyles = "text-m-36";
+      variantStyles = "text-m text-m-36";
       break;
     case "m-40":
-      variantStyles = "text-m-40";
+      variantStyles = "text-m text-m-40";
       break;
     case "m-88-shadow":
-      variantStyles = "text-m-88-shadow";
+      variantStyles = "text-m text-m-88-shadow";
       break;
     case "m-96":
-      variantStyles = "text-m-96";
+      variantStyles = "text-m text-m-96";
       break;
   }
 

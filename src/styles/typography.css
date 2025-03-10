@@ -15,86 +15,67 @@
         --font-weight-black: 900;
     }
 
-    .text-ds-40 {
+    .text-ds {
         font-family: var(--font-secondary);
-        font-size: 40px;
-        line-height: 1.5;
-        letter-spacing: 0;
-    }
-    .text-ds-50 {
-        font-family: var(--font-secondary);
-        font-size: 50px;
         line-height: 1.5;
         letter-spacing: 0;
     }
 
+    .text-ds-40 {
+        font-size: 40px;
+    }
+
+    .text-ds-50 {
+        font-size: 50px;
+    }
+
     .text-ds-62-shadow {
-        font-family: var(--font-secondary);
         font-size: 62px;
         line-height: auto;
         letter-spacing: -0.02em;
         text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     }
 
-    .text-m-18-italic {
+    .text-m {
         font-family: var(--font-primary);
+        letter-spacing: 0;
+        line-height: 1.5;
+    }
+
+    .text-m-18-italic {
         font-style: italic;
         font-size: 18px;
-        line-height: 1.5;
-        letter-spacing: 0;
     }
 
     .text-m-18 {
-        font-family: var(--font-primary);
         font-size: 18px;
-        line-height: 1.5;
-        letter-spacing: 0;
     }
 
     .text-m-19 {
-        font-family: var(--font-primary);
         font-size: 19px;
-        line-height: 1.15;
-        letter-spacing: 0;
     }
 
     .text-m-20 {
-        font-family: var(--font-primary);
         font-size: 20px;
-        line-height: 1.5;
-        letter-spacing: 0;
     }
 
     .text-m-24 {
-        font-family: var(--font-primary);
         font-size: 24px;
-        line-height: 1.5;
-        letter-spacing: 0;
     }
 
     .text-m-32 {
-        font-family: var(--font-primary);
         font-size: 32px;
-        line-height: 1.5;
-        letter-spacing: 0;
     }
 
     .text-m-36 {
-        font-family: var(--font-primary);
         font-size: 36px;
-        line-height: 1.5;
-        letter-spacing: 0;
     }
 
     .text-m-40 {
-        font-family: var(--font-primary);
         font-size: 40px;
-        line-height: 1.5;
-        letter-spacing: 0;
     }
 
     .text-m-88-shadow {
-        font-family: var(--font-primary);
         font-size: 88px;
         line-height: auto;
         letter-spacing: -0.02em;
@@ -102,9 +83,6 @@
     }
 
     .text-m-96 {
-        font-family: var(--font-primary);
         font-size: 96px;
-        line-height: 1.5;
-        letter-spacing: 0;
     }
 }

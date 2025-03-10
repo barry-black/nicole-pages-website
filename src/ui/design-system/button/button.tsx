@@ -25,16 +25,16 @@ export const Button = ({
 
     switch (variant) {
       case "topMenu": // default
-        variantStyles = "btn-topMenu";
+        variantStyles = "btn btn-topMenu";
         break;
       case "info":
-        variantStyles = "btn-info";
+        variantStyles = "btn btn-info";
         break;
       case "callAction":
-        variantStyles = "btn-callAction";
+        variantStyles = "btn btn-callAction";
         break;
       case "disabled":
-        variantStyles = "btn-disabled";
+        variantStyles = "btn btn-disabled";
         break;
       case "ico":
         variantStyles = "";
