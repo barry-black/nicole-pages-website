@@ -1,55 +1,56 @@
 import clsx from "clsx";
+import Image from "next/image";
 
 interface Props {
   variant?: "topMenu" | "info" | "callAction" | "disabled" | "ico";
-  // icon?: any;
-  iconTheme?: "topMenu" | "info" | "gray";
-  iconPosition?: "left" | "right";
+  icon?: string;
   disabled?: boolean;
-  isLoading?: boolean;
   children?: React.ReactNode;
 }
 
 export const Button = ({
-  // size = "medium",
   variant = "topMenu",
-  // icon,
-  // iconTheme = "topMenu",
-  // iconPosition = "right",
+  icon,
   disabled,
-  // isLoading,
   children,
 }: Props) => {
-    let variantStyles: string = "";
-    // let icoSizeStyles: number = 0;
+  let variantStyles: string = "";
 
-    switch (variant) {
-      case "topMenu": // default
-        variantStyles = "btn btn-topMenu";
-        break;
-      case "info":
-        variantStyles = "btn btn-info";
-        break;
-      case "callAction":
-        variantStyles = "btn btn-callAction";
-        break;
-      case "disabled":
-        variantStyles = "btn btn-disabled";
-        break;
-      case "ico":
-        variantStyles = "";
-        break;
-    }
+  switch (variant) {
+    case "topMenu": // default
+      variantStyles = "btn btn-topMenu";
+      break;
+    case "info":
+      variantStyles = "btn btn-info";
+      break;
+    case "callAction":
+      variantStyles = "btn btn-callAction";
+      break;
+    case "disabled":
+      variantStyles = "btn btn-disabled";
+      break;
+    case "ico":
+      variantStyles = "btn btn-ico";
+      break;
+  }
 
   return (
     <>
       <button
         type="button"
-        className={clsx(variantStyles,"")}
+        className={clsx(variantStyles, "")}
         onClick={() => console.log("click")}
         disabled={disabled}
       >
-        {children}
+        {icon && (
+          <span className="relative flex items-center">
+            {children}
+            <span className="icon-container">
+              <Image src={icon} alt="Icon" width={86.69} height={85} />
+            </span>
+          </span>
+        )}
+        {!icon && children}
       </button>
     </>
   );

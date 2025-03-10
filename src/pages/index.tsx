@@ -14,6 +14,7 @@ export default function Home() {
           <Button variant="info">+ d&apos;info</Button>
           <Button variant="callAction">Prendre rendez-vous</Button>
           <Button variant="disabled">Prendre rendez-vous</Button>
+          <Button variant="ico" icon="/assets/svg/papillon_blanc.png">Nicole Pagès</Button>
         </div>
 
         <div className="mt-[5px] space-y-[5px]">
