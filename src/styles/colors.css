@@ -1,4 +1,5 @@
-@layer utilities {:root {
+@layer utilities {
+    :root {
         --color-pale-blue: #d4edea;
         --color-sky-blue: #13abc4;
         --color-ocean-blue: #108194;
@@ -6,6 +7,7 @@
         --color-white: #ffffff;
         --color-black: #000000;
     }
+
     .text-pale-blue {
         color: var(--color-pale-blue);
     }
@@ -36,5 +38,13 @@
 
     .bg-pale-blue {
         background-color: var(--color-pale-blue);
+    }
+
+    .spinner-dark-blue {
+        fill: var(--color-dark-blue);
+    }
+
+    .spinner-pale-blue {
+        fill: var(--color-pale-blue);
     }
 }

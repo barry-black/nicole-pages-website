@@ -1,17 +1,18 @@
 import clsx from "clsx";
 import Image from "next/image";
+import { Spinner } from "../spinner/spinner";
 
 interface Props {
   variant?: "topMenu" | "info" | "callAction" | "disabled" | "ico";
   icon?: string;
-  disabled?: boolean;
+  isLoading?: boolean;
   children?: React.ReactNode;
 }
 
 export const Button = ({
   variant = "topMenu",
   icon,
-  disabled,
+  isLoading,
   children,
 }: Props) => {
   let variantStyles: string = "";
@@ -38,19 +39,30 @@ export const Button = ({
     <>
       <button
         type="button"
-        className={clsx(variantStyles, "")}
+        className={clsx(variantStyles, isLoading && "pointer-events-none", "relative")}
         onClick={() => console.log("click")}
-        disabled={disabled}
       >
-        {icon && (
-          <span className="relative flex items-center">
-            {children}
-            <span className="icon-container">
-              <Image src={icon} alt="Icon" width={86.69} height={85} />
-            </span>
-          </span>
+        {isLoading && (
+          <div className="absolute inset-0 flex items-center justify-center">
+            {variant === "topMenu" ? (
+              <Spinner size="medium" />
+            ) : (
+              <Spinner size="medium" variant="secondary" />
+            )}
+          </div>
         )}
-        {!icon && children}
+
+        <div className={clsx(isLoading && "invisible")}>
+          {icon && (
+            <span className="relative flex items-center">
+              {children}
+              <span className="icon-container">
+                <Image src={icon} alt="Icon" width={85} height={85} />
+              </span>
+            </span>
+          )}
+          {!icon && children}
+        </div>
       </button>
     </>
   );
