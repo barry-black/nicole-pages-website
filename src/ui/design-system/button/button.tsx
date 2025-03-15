@@ -36,34 +36,45 @@ export const Button = ({
   }
 
   return (
-    <>
-      <button
-        type="button"
-        className={clsx(variantStyles, isLoading && "pointer-events-none", "relative")}
-        onClick={() => console.log("click")}
-      >
-        {isLoading && (
-          <div className="absolute inset-0 flex items-center justify-center">
-            {variant === "topMenu" ? (
-              <Spinner size="medium" />
-            ) : (
-              <Spinner size="medium" variant="secondary" />
-            )}
-          </div>
-        )}
-
-        <div className={clsx(isLoading && "invisible")}>
-          {icon && (
-            <span className="relative flex items-center">
-              {children}
-              <span className="icon-container">
-                <Image src={icon} alt="Icon" width={85} height={85} />
-              </span>
-            </span>
+    <button
+      type="button"
+      className={clsx(
+        variantStyles,
+        isLoading && "pointer-events-none",
+        variant === "disabled" ? "cursor-not-allowed" : "cursor-pointer",
+        "relative"
+      )}
+      disabled={variant === "disabled"}
+      onClick={(e) => {
+        if (variant === "disabled" || isLoading) {
+          e.preventDefault();
+          e.stopPropagation();
+          return;
+        }
+        console.log("click");
+      }}
+    >
+      {isLoading && (
+        <div className="absolute inset-0 flex items-center justify-center">
+          {variant === "topMenu" ? (
+            <Spinner size="medium" />
+          ) : (
+            <Spinner size="medium" variant="secondary" />
           )}
-          {!icon && children}
         </div>
-      </button>
-    </>
+      )}
+
+      <div className={clsx(isLoading && "invisible")}>
+        {icon && (
+          <span className="relative flex items-center">
+            {children}
+            <span className="icon-container">
+              <Image src={icon} alt="Icon" width={85} height={85} />
+            </span>
+          </span>
+        )}
+        {!icon && children}
+      </div>
+    </button>
   );
 };
