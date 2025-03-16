@@ -39,6 +39,7 @@ export const Button = ({
     <button
       type="button"
       className={clsx(
+        "whitespace-nowrap",
         variantStyles,
         isLoading && "pointer-events-none",
         variant === "disabled" ? "cursor-not-allowed" : "cursor-pointer",
