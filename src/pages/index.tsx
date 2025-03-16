@@ -1,3 +1,4 @@
+import { Container } from "@/ui/components/container/container";
 import { Seo } from "@/ui/components/seo/seo";
 import { Button } from "@/ui/design-system/button/button";
 import { Logo } from "@/ui/design-system/logo/logo";
@@ -9,7 +10,7 @@ export default function Home() {
     <>
       <Seo title="Nicole Pagès Thérapie" description="Description..." />
 
-      <div className="bg-gray-400 space-y-5">
+      <Container className="bg-gray-400 py-10 space-y-5">
         {/* Spinner */}
         <div className="max-w">
           <div className="space-y-2">
@@ -116,7 +117,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </div>
+      </Container>
     </>
   );
 }
