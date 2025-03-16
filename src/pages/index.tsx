@@ -1,5 +1,6 @@
 import { Seo } from "@/ui/components/seo";
 import { Button } from "@/ui/design-system/button/button";
+import { Logo } from "@/ui/design-system/logo/logo";
 import { Spinner } from "@/ui/design-system/spinner/spinner";
 import { Typography } from "@/ui/design-system/typography/typography";
 
@@ -8,9 +9,9 @@ export default function Home() {
     <>
       <Seo title="Nicole Pagès Thérapie" description="Description..." />
 
-      <div className="bg-gray-400 p-10">
+      <div className="bg-gray-400 space-y-5">
         {/* Spinner */}
-        <div className="flex items-start gap-10">
+        <div className="max-w">
           <div className="space-y-2">
             <Typography variant="m-24" weight="medium">
               Spinner
@@ -24,7 +25,7 @@ export default function Home() {
         </div>
 
         {/* Button */}
-        <div className="flex items-start gap-10">
+        <div className="max-w">
           <div className="space-y-2">
             <Typography variant="m-24" weight="medium">
               Buttons
@@ -50,8 +51,22 @@ export default function Home() {
           </div>
         </div>
 
+        {/* Logo */}
+        <div className="max-w">
+          <div className="space-y-2">
+            <Typography variant="m-24" weight="medium">
+              Logo
+            </Typography>
+            <div className="flex items-center gap-10 p-5 border border-white rounded">
+              <Logo size="small"></Logo>
+              <Logo size = "medium"></Logo>
+              <Logo size="large"></Logo>
+            </div>
+          </div>
+        </div>
+
         {/* Typography */}
-        <div className="flex items-start gap-10">
+        <div className="max-w">
           <div className="space-y-2">
             <Typography variant="m-24" weight="medium">
               Typography
