@@ -15,9 +15,9 @@ export default function Home() {
         <Navigation />
 
         {/* Image section */}
-        <div className="relative w-full h-[630px]">
+        <div className="relative w-full h-[1080px]">
           <Image
-            src="/assets/images/accueil.png"
+            src="/assets/images/accueil.webp"
             alt="Accueil"
             fill
             className="object-contain"
