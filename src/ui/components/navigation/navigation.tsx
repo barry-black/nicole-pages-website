@@ -2,6 +2,7 @@
 
 import { useCallback } from "react";
 import { Button } from "@/ui/design-system/button/button";
+import clsx from "clsx";
 
 interface NavigationProps {
   menuOpen: boolean;
@@ -25,7 +26,6 @@ export const Navigation = ({ menuOpen, toggleMenu }: NavigationProps) => {
   );
 
   const handleScrollToTop = useCallback(() => {
-    console.log("handleScrollToTop called");
     window.scrollTo({ top: 0, behavior: "smooth" });
     if (menuOpen) toggleMenu();
   }, [menuOpen, toggleMenu]);
@@ -77,10 +77,10 @@ export const Navigation = ({ menuOpen, toggleMenu }: NavigationProps) => {
           <button
             onClick={toggleMenu}
             aria-label="Menu"
-            className="text-text-white cursor-pointer"
+            className="text-white cursor-pointer"
           >
             <svg
-              className="w-8 h-8"
+              className="w-8 h-8 transition-transform duration-300 ease-in-out"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -105,43 +105,47 @@ export const Navigation = ({ menuOpen, toggleMenu }: NavigationProps) => {
         </div>
       </div>
 
-      {/* Mobile menu */}
-      {menuOpen && (
-        <nav className="md:hidden bg-[var(--color-ocean-blue)] px-6 pb-4">
-          <ul className="flex flex-col space-y-4 text-lg text-white">
-            <li
-              className="cursor-pointer hover:underline"
-              onClick={() => handleScrollToSection("soins")}
+      {/* Mobile menu - toujours dans le DOM */}
+      <nav
+        className={clsx(
+          "md:hidden bg-[var(--color-ocean-blue)] px-6 overflow-hidden transition-all duration-300 ease-in-out",
+          menuOpen ? "max-h-[300px] py-6" : "max-h-0 py-0"
+        )}
+        aria-hidden={!menuOpen}
+      >
+        <ul className="flex flex-col space-y-4 text-lg text-white">
+          <li
+            className="cursor-pointer hover:underline"
+            onClick={() => handleScrollToSection("soins")}
+          >
+            Les soins
+          </li>
+          <li>
+            <a
+              href="/design-system"
+              onClick={toggleMenu}
+              className="hover:underline"
             >
-              Les soins
-            </li>
-            <li>
-              <a
-                href="/design-system"
-                onClick={toggleMenu}
-                className="hover:underline"
-              >
-                Le cabinet
-              </a>
-            </li>
-            <li>
-              <a
-                href="/design-system"
-                onClick={toggleMenu}
-                className="hover:underline"
-              >
-                Les tarifs
-              </a>
-            </li>
-            <li
-              className="cursor-pointer hover:underline"
-              onClick={() => handleScrollToSection("contact")}
+              Le cabinet
+            </a>
+          </li>
+          <li>
+            <a
+              href="/design-system"
+              onClick={toggleMenu}
+              className="hover:underline"
             >
-              Contact
-            </li>
-          </ul>
-        </nav>
-      )}
+              Les tarifs
+            </a>
+          </li>
+          <li
+            className="cursor-pointer hover:underline"
+            onClick={() => handleScrollToSection("contact")}
+          >
+            Contact
+          </li>
+        </ul>
+      </nav>
     </header>
   );
 };

@@ -42,47 +42,6 @@ export default function MainPage() {
       <main className="text-gray-800">
         {/* Sticky Navbar */}
         <Navigation menuOpen={menuOpen} toggleMenu={toggleMenu} />
-        {/* <header className="sticky top-0 z-50 bg-teal-600 text-white shadow">
-          <div className="flex items-center justify-between px-6 py-4 max-w-7xl mx-auto">
-            <div className="text-2xl font-bold">Nicole Pagès</div>
-            <nav className="hidden md:flex space-x-6 text-sm font-medium">
-              <a href="#soins" className="hover:underline">
-                Les soins
-              </a>
-              <a href="#cabinet" className="hover:underline">
-                Le cabinet
-              </a>
-              <a href="#tarifs" className="hover:underline">
-                Les tarifs
-              </a>
-              <a href="#contact" className="hover:underline">
-                Contact
-              </a>
-            </nav>
-            <button
-              className="md:hidden"
-              onClick={() => setMenuOpen(!menuOpen)}
-            >
-              {menuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-          </div>
-          {menuOpen && (
-            <nav className="md:hidden bg-teal-700 px-6 pb-4 text-sm font-medium space-y-2">
-              <a href="#soins" onClick={() => setMenuOpen(false)}>
-                Les soins
-              </a>
-              <a href="#cabinet" onClick={() => setMenuOpen(false)}>
-                Le cabinet
-              </a>
-              <a href="#tarifs" onClick={() => setMenuOpen(false)}>
-                Les tarifs
-              </a>
-              <a href="#contact" onClick={() => setMenuOpen(false)}>
-                Contact
-              </a>
-            </nav>
-          )}
-        </header> */}
 
         {/* Hero */}
         <section className="bg-teal-600 text-white">
