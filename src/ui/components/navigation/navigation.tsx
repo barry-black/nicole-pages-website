@@ -1,8 +1,12 @@
 "use client";
 
+/* public library */
 import { useCallback } from "react";
+import Link from "next/link";
+import clsx from "clsx";
+
+/* Component */
 import { Button } from "@/ui/design-system/button/button";
-import clsx from "clsx"; // Assure-toi d'avoir clsx installé
 
 interface NavigationProps {
   menuOpen: boolean;
@@ -54,14 +58,14 @@ export const Navigation = ({ menuOpen, toggleMenu }: NavigationProps) => {
               Les soins
             </li>
             <li>
-              <a href="/design-system" className="hover:underline">
+              <Link href="/design-system" className="hover:underline">
                 Le cabinet
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/design-system" className="hover:underline">
+              <Link href="/design-system" className="hover:underline">
                 Les tarifs
-              </a>
+              </Link>
             </li>
             <li
               className="cursor-pointer hover:underline"
@@ -123,22 +127,22 @@ export const Navigation = ({ menuOpen, toggleMenu }: NavigationProps) => {
             Les soins
           </li>
           <li>
-            <a
+            <Link
               href="/design-system"
               onClick={toggleMenu}
               className="hover:underline"
             >
               Le cabinet
-            </a>
+            </Link>
           </li>
           <li>
-            <a
+            <Link
               href="/design-system"
               onClick={toggleMenu}
               className="hover:underline"
             >
               Les tarifs
-            </a>
+            </Link>
           </li>
           <li
             className="cursor-pointer hover:underline pb-2"

@@ -1,6 +1,8 @@
 "use client";
+
+/* public library */
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import Image from "next/image";
 
 /* Component */
 import { Navigation } from "@/ui/components/navigation/navigation";
@@ -46,17 +48,21 @@ export default function MainPage() {
         {/* Hero */}
         <section className="bg-teal-600 text-white">
           <div className="flex flex-col items-center text-center px-4 py-12 md:py-20">
-            <img
+            <Image
               src="/assets/images/accueil.webp"
               alt="Canapé"
+              width={1200}
+              height={800}
               className="rounded-lg shadow-lg mb-6 w-full max-w-3xl"
+              priority
             />
+
             <h2 className="text-xl md:text-2xl italic mb-2">Thérapeute</h2>
             <h1 className="text-3xl md:text-5xl font-bold mb-4">
               Hypnose Reiki PNL
             </h1>
             <button className="border border-white px-6 py-2 rounded hover:bg-white hover:text-teal-600 transition">
-              + d'info
+              + d&apos;info
             </button>
           </div>
         </section>
@@ -89,9 +95,11 @@ export default function MainPage() {
               </p>
             </div>
             <div className="flex justify-center">
-              <img
+              <Image
                 src="/assets/images/photo_nicole.jpg"
                 alt="Portrait Nicole"
+                width={192}
+                height={288}
                 className="rounded-lg shadow-lg w-48 h-auto"
               />
             </div>
@@ -129,12 +137,15 @@ export default function MainPage() {
                 className="relative group cursor-pointer"
                 onClick={() => setActiveSoins(activeSoins === i ? null : i)}
               >
-                <img
-                  src={soin.image}
-                  alt={soin.title}
-                  className="rounded-lg shadow w-full h-48 object-cover"
-                  style={{ objectPosition: soin.objectPosition || "center" }}
-                />
+                <div className="relative w-full h-48">
+                  <Image
+                    src={soin.image}
+                    alt={soin.title}
+                    fill
+                    className="rounded-lg shadow object-cover"
+                    style={{ objectPosition: soin.objectPosition || "center" }}
+                  />
+                </div>
                 <div
                   className={`absolute inset-0 bg-black bg-opacity-60 text-white flex items-center justify-center text-center text-sm p-4 transition duration-300 ${
                     activeSoins === i
@@ -214,7 +225,7 @@ export default function MainPage() {
                 className="border p-3 rounded md:col-span-2"
               />
               <textarea
-                rows="4"
+                rows={4}
                 placeholder="Votre Message..."
                 className="border p-3 rounded md:col-span-2"
               />
