@@ -24,12 +24,11 @@ export const Navigation = ({ menuOpen, toggleMenu }: NavigationProps) => {
     [menuOpen, toggleMenu]
   );
 
-const handleScrollToTop = useCallback(() => {
-  console.log("handleScrollToTop called");
-  window.scrollTo({ top: 0, behavior: "smooth" });
-  if (menuOpen) toggleMenu();
-}, [menuOpen, toggleMenu]);
-
+  const handleScrollToTop = useCallback(() => {
+    console.log("handleScrollToTop called");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    if (menuOpen) toggleMenu();
+  }, [menuOpen, toggleMenu]);
 
   return (
     <header className="sticky top-0 z-50 bg-[var(--color-sky-blue)] text-white shadow">
@@ -75,7 +74,11 @@ const handleScrollToTop = useCallback(() => {
 
         {/* Mobile burger */}
         <div className="md:hidden">
-          <button onClick={toggleMenu} aria-label="Menu" className="text-white">
+          <button
+            onClick={toggleMenu}
+            aria-label="Menu"
+            className="text-text-white cursor-pointer"
+          >
             <svg
               className="w-8 h-8"
               fill="none"
