@@ -8,6 +8,7 @@ import { Seo } from "@/ui/components/seo/seo";
 
 export default function MainPage() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const toggleMenu = () => setMenuOpen((prev) => !prev);
   const [activeSoins, setActiveSoins] = useState<number | null>(null);
 
   const soins = [
@@ -40,7 +41,8 @@ export default function MainPage() {
 
       <main className="text-gray-800">
         {/* Sticky Navbar */}
-        <header className="sticky top-0 z-50 bg-teal-600 text-white shadow">
+        <Navigation menuOpen={menuOpen} toggleMenu={toggleMenu} />
+        {/* <header className="sticky top-0 z-50 bg-teal-600 text-white shadow">
           <div className="flex items-center justify-between px-6 py-4 max-w-7xl mx-auto">
             <div className="text-2xl font-bold">Nicole Pagès</div>
             <nav className="hidden md:flex space-x-6 text-sm font-medium">
@@ -80,7 +82,7 @@ export default function MainPage() {
               </a>
             </nav>
           )}
-        </header>
+        </header> */}
 
         {/* Hero */}
         <section className="bg-teal-600 text-white">
