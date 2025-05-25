@@ -2,7 +2,7 @@
 
 import { useCallback } from "react";
 import { Button } from "@/ui/design-system/button/button";
-import clsx from "clsx";
+import clsx from "clsx"; // Assure-toi d'avoir clsx installé
 
 interface NavigationProps {
   menuOpen: boolean;
@@ -77,10 +77,13 @@ export const Navigation = ({ menuOpen, toggleMenu }: NavigationProps) => {
           <button
             onClick={toggleMenu}
             aria-label="Menu"
+            aria-expanded={menuOpen}
             className="text-white cursor-pointer"
           >
             <svg
-              className="w-8 h-8 transition-transform duration-300 ease-in-out"
+              className={`w-8 h-8 transition-transform duration-300 ease-in-out ${
+                menuOpen ? "rotate-45" : "rotate-0"
+              }`}
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -105,17 +108,16 @@ export const Navigation = ({ menuOpen, toggleMenu }: NavigationProps) => {
         </div>
       </div>
 
-      {/* Mobile menu - toujours dans le DOM */}
-      <nav
+      {/* Mobile menu with animation */}
+      <div
         className={clsx(
-          "md:hidden bg-[var(--color-ocean-blue)] px-6 overflow-hidden transition-all duration-300 ease-in-out",
-          menuOpen ? "max-h-[300px] py-6" : "max-h-0 py-0"
+          "md:hidden overflow-hidden bg-[var(--color-ocean-blue)] transition-all duration-500 ease-in-out px-6",
+          menuOpen ? "max-h-96 opacity-100 py-6" : "max-h-0 opacity-0 py-0"
         )}
-        aria-hidden={!menuOpen}
       >
         <ul className="flex flex-col space-y-4 text-lg text-white">
           <li
-            className="cursor-pointer hover:underline"
+            className="cursor-pointer hover:underline pt-2"
             onClick={() => handleScrollToSection("soins")}
           >
             Les soins
@@ -139,13 +141,13 @@ export const Navigation = ({ menuOpen, toggleMenu }: NavigationProps) => {
             </a>
           </li>
           <li
-            className="cursor-pointer hover:underline"
+            className="cursor-pointer hover:underline pb-2"
             onClick={() => handleScrollToSection("contact")}
           >
             Contact
           </li>
         </ul>
-      </nav>
+      </div>
     </header>
   );
 };

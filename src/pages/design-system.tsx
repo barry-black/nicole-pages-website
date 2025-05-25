@@ -1,124 +1,108 @@
-/* Component */
 import { Container } from "@/ui/components/container/container";
 import { Seo } from "@/ui/components/seo/seo";
 
 /* Design System */
 import { Button } from "@/ui/design-system/button/button";
+import { IconButton } from "@/ui/design-system/button/icon-button";
 import { Logo } from "@/ui/design-system/logo/logo";
 import { Spinner } from "@/ui/design-system/spinner/spinner";
 import { Typography } from "@/ui/design-system/typography/typography";
+import { Navigation } from "@/ui/components/navigation/navigation";
+
+import { useState } from "react";
 
 export default function DesignSystem() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const toggleMenu = () => setMenuOpen((prev) => !prev);
+
   return (
     <>
       <Seo title="Design System" description="Description..." />
 
       <Container className="bg-gray-400 py-10 space-y-5">
+        {/* Navigation */}
+        <div className="max-w">
+          <Typography variant="m-24" weight="medium">
+            Navigation / Menu burger
+          </Typography>
+          <Navigation menuOpen={menuOpen} toggleMenu={toggleMenu} />
+        </div>
 
         {/* Spinner */}
         <div className="max-w">
-          <div className="space-y-2">
-            <Typography variant="m-24" weight="medium">
-              Spinner
-            </Typography>
-            <div className="flex items-center gap-10 p-5 border border-white rounded">
-              <Spinner size="small"></Spinner>
-              <Spinner size="medium" variant="secondary"></Spinner>
-              <Spinner size="large"></Spinner>
-            </div>
+          <Typography variant="m-24" weight="medium">
+            Spinner
+          </Typography>
+          <div className="flex items-center gap-10 p-5 border border-white rounded">
+            <Spinner size="small"></Spinner>
+            <Spinner size="medium" variant="secondary"></Spinner>
+            <Spinner size="large"></Spinner>
           </div>
         </div>
 
-        {/* Button */}
+        {/* Buttons */}
         <div className="max-w">
-          <div className="space-y-2">
-            <Typography variant="m-24" weight="medium">
-              Buttons
-            </Typography>
-            <div className="flex flex-col gap-5 p-5 border border-white rounded">
-              <Button variant="topMenu">les soins</Button>
-              <Button variant="info">+ d&apos;info</Button>
-              <Button variant="callAction">Prendre rendez-vous</Button>
-              <Button variant="disabled">Prendre rendez-vous</Button>
-              <Button variant="ico" icon="/assets/svg/papillon_blanc.png">
-                Nicole Pagès
-              </Button>
-              <Button isLoading variant="topMenu">
-                les soins
-              </Button>
-              <Button isLoading variant="info">
-                + d&apos;info
-              </Button>
-              <Button isLoading variant="callAction">
-                Prendre rendez-vous
-              </Button>
-            </div>
+          <Typography variant="m-24" weight="medium">
+            Buttons
+          </Typography>
+          <div className="flex flex-col gap-5 p-5 border border-white rounded">
+            <Button variant="topMenu">les soins</Button>
+            <Button variant="info">+ d&apos;info</Button>
+            <Button variant="callAction">Prendre rendez-vous</Button>
+            <Button variant="disabled">Prendre rendez-vous</Button>
+            <Button variant="ico" icon="/assets/svg/papillon_blanc.png">
+              Nicole Pagès
+            </Button>
+            <Button isLoading variant="topMenu">
+              les soins
+            </Button>
+            <Button isLoading variant="info">
+              + d&apos;info
+            </Button>
+            <Button isLoading variant="callAction">
+              Prendre rendez-vous
+            </Button>
+          </div>
+        </div>
+
+        {/* Icon Button */}
+        <div className="max-w">
+          <Typography variant="m-24" weight="medium">
+            Icon Buttons
+          </Typography>
+          <div className="flex items-center gap-6 p-5 border border-white rounded">
+            <IconButton
+              icon="/assets/svg/papillon_blanc.png"
+              ariaLabel="Icône papillon"
+              onClick={() => alert("IconButton clicked")}
+            />
+            <IconButton
+              icon="/assets/svg/papillon_blanc.png"
+              ariaLabel="Icône papillon grande"
+              size="large"
+            />
           </div>
         </div>
 
         {/* Logo */}
         <div className="max-w">
-          <div className="space-y-2">
-            <Typography variant="m-24" weight="medium">
-              Logo
-            </Typography>
-            <div className="flex items-center gap-10 p-5 border border-white rounded">
-              <Logo size="small"></Logo>
-              <Logo size="medium"></Logo>
-              <Logo size="large"></Logo>
-            </div>
+          <Typography variant="m-24" weight="medium">
+            Logo
+          </Typography>
+          <div className="flex items-center gap-10 p-5 border border-white rounded">
+            <Logo size="small"></Logo>
+            <Logo size="medium"></Logo>
+            <Logo size="large"></Logo>
           </div>
         </div>
 
         {/* Typography */}
         <div className="max-w">
-          <div className="space-y-2">
-            <Typography variant="m-24" weight="medium">
-              Typography
-            </Typography>
-            <div className="flex flex-col gap-5 p-5 border border-white rounded">
-              <Typography variant="ds-40" theme="ocean-blue" component="h1">
-                Text
-              </Typography>
-              <Typography variant="ds-50" theme="white" component="h1">
-                Text
-              </Typography>
-              <Typography
-                variant="ds-62-shadow"
-                theme="ocean-blue"
-                component="h1"
-              >
-                Text
-              </Typography>
-              <Typography variant="m-18" theme="black" component="div">
-                Text
-              </Typography>
-              <Typography
-                variant="m-18-italic"
-                theme="pale-blue"
-                component="div"
-              >
-                Text
-              </Typography>
-              <Typography variant="m-19" theme="ocean-blue" component="div">
-                Text
-              </Typography>
-              <Typography variant="m-20" theme="black" component="div">
-                Text
-              </Typography>
-              <Typography variant="m-24" theme="pale-blue" component="div">
-                Text
-              </Typography>
-              <Typography variant="m-36" theme="ocean-blue" component="div">
-                Text
-              </Typography>
-              <Typography variant="m-40" theme="black" component="div">
-                Text
-              </Typography>
-              <Typography variant="m-88-shadow" theme="white" component="div">
-                Text
-              </Typography>
-            </div>
+          <Typography variant="m-24" weight="medium">
+            Typography
+          </Typography>
+          <div className="flex flex-col gap-5 p-5 border border-white rounded">
+            {/* ... ton contenu typography actuel ... */}
           </div>
         </div>
       </Container>
