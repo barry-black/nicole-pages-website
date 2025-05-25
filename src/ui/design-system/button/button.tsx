@@ -7,6 +7,7 @@ interface Props {
   icon?: string;
   isLoading?: boolean;
   children?: React.ReactNode;
+  onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void; // Ajout
 }
 
 export const Button = ({
@@ -14,6 +15,7 @@ export const Button = ({
   icon,
   isLoading,
   children,
+  onClick,  // réception du onClick
 }: Props) => {
   let variantStyles: string = "";
 
@@ -52,7 +54,9 @@ export const Button = ({
           e.stopPropagation();
           return;
         }
-        console.log("click");
+        if (onClick) {
+          onClick(e);  // appel du onClick reçu en prop
+        }
       }}
     >
       {isLoading && (
@@ -66,15 +70,16 @@ export const Button = ({
       )}
 
       <div className={clsx(isLoading && "invisible")}>
-        {icon && (
+        {icon ? (
           <span className="relative flex items-center">
             {children}
             <span className="icon-container">
               <Image src={icon} alt="Icon" width={85} height={85} />
             </span>
           </span>
+        ) : (
+          children
         )}
-        {!icon && children}
       </div>
     </button>
   );

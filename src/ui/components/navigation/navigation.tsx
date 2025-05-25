@@ -24,10 +24,12 @@ export const Navigation = ({ menuOpen, toggleMenu }: NavigationProps) => {
     [menuOpen, toggleMenu]
   );
 
-  const handleScrollToTop = useCallback(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-    if (menuOpen) toggleMenu();
-  }, [menuOpen, toggleMenu]);
+const handleScrollToTop = useCallback(() => {
+  console.log("handleScrollToTop called");
+  window.scrollTo({ top: 0, behavior: "smooth" });
+  if (menuOpen) toggleMenu();
+}, [menuOpen, toggleMenu]);
+
 
   return (
     <header className="sticky top-0 z-50 bg-[var(--color-sky-blue)] text-white shadow">
