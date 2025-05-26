@@ -9,6 +9,40 @@ import { Seo } from "@/ui/components/seo/seo";
 import { Navigation } from "@/ui/components/navigation/navigation";
 import { Accueil } from "@/ui/components/accueil/accueil";
 
+function Modal({ soin, onClose }: { soin: (typeof soins)[0]; onClose: () => void }) {
+  return (
+    <div
+      className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 px-4"
+      onClick={onClose}
+    >
+      <div
+        className="bg-white max-w-2xl w-full p-6 rounded-lg shadow-lg relative overflow-y-auto max-h-[90vh]"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button
+          onClick={onClose}
+          className="absolute top-4 right-4 text-gray-500 hover:text-black text-2xl"
+          aria-label="Fermer"
+        >
+          &times;
+        </button>
+
+        <Image
+          src={soin.image}
+          alt={soin.title}
+          width={600}
+          height={300}
+          className="w-full h-64 object-cover rounded mb-4"
+        />
+
+        <h2 className="text-xl font-bold text-teal-700 mb-2">{soin.title}</h2>
+
+        <p className="whitespace-pre-line text-gray-700 text-sm">{soin.description}</p>
+      </div>
+    </div>
+  );
+}
+
 export default function MainPage() {
   const [menuOpen, setMenuOpen] = useState(false);
   const toggleMenu = () => setMenuOpen((prev) => !prev);
@@ -84,9 +118,7 @@ Elle permet de :
         <section id="who-i-am" className="bg-[#d6f1f1] py-12 px-6">
           <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-8 items-center">
             <div>
-              <h2 className="text-teal-600 text-2xl font-bold mb-4">
-                Qui suis-je ?
-              </h2>
+              <h2 className="text-teal-600 text-2xl font-bold mb-4">Qui suis-je ?</h2>
               <p className="mb-4">
                 Bonjour, je suis Nicole. <br />
                 <br />
@@ -142,34 +174,28 @@ Elle permet de :
             {soins.map((soin, i) => (
               <div
                 key={i}
-                className="relative group cursor-pointer"
-                onClick={() => setActiveSoins(activeSoins === i ? null : i)}
+                className="cursor-pointer rounded-lg overflow-hidden shadow hover:shadow-lg transition"
+                onClick={() => setActiveSoins(i)}
               >
                 <div className="relative w-full h-48">
                   <Image
                     src={soin.image}
                     alt={soin.title}
                     fill
-                    className="rounded-lg shadow object-cover"
+                    className="object-cover"
                     style={{ objectPosition: soin.objectPosition || "center" }}
                   />
                 </div>
-                <div
-                  className={`absolute inset-0 bg-black bg-opacity-60 text-white flex items-center justify-center text-center text-sm p-4 transition duration-300 ${
-                    activeSoins === i
-                      ? "opacity-100"
-                      : "opacity-0 group-hover:opacity-100"
-                  }`}
-                >
-                  {soin.description}
-                </div>
-                <div className="text-center mt-2 text-lg font-medium">
-                  {soin.title}
-                </div>
+                <div className="p-4 text-center font-semibold">{soin.title}</div>
               </div>
             ))}
           </div>
+
+          {activeSoins !== null && (
+            <Modal soin={soins[activeSoins]} onClose={() => setActiveSoins(null)} />
+          )}
         </section>
+
         {/* Témoignages */}
         <section className="bg-[#284a74] text-white py-12 px-6">
           <h2 className="text-2xl font-bold text-center mb-10">Témoignages</h2>
@@ -253,8 +279,6 @@ Elle permet de :
           <p>Sainte Livrade sur Lot | contact@nicolepages.com</p>
           <p>Mentions légales | Politique de confidentialité</p>
         </footer>
-
-        {/* Reste à compléter : témoignages, contact, footer */}
       </main>
     </>
   );
