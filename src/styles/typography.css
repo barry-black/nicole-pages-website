@@ -77,9 +77,8 @@
     }
 
     .text-m-88-shadow {
-        @apply text-[42px] md:text-[88px] leading-snug tracking-[-0.02em];
+        @apply text-[36px] sm:text-[42px] md:text-[88px] leading-snug tracking-[-0.02em];
         font-family: var(--font-primary);
-        /* Ombre plus forte et plus large */
         text-shadow:
             0 2px 4px rgba(0, 0, 0, 0.4),
             0 4px 10px rgba(0, 0, 0, 0.5),
