@@ -21,7 +21,7 @@ export function Modal({ soin, onClose }: ModalProps) {
     setIsVisible(false);
     setTimeout(() => {
       onClose();
-    }, 300); // durée de l'animation
+    }, 300);
   };
 
   return (
@@ -31,37 +31,35 @@ export function Modal({ soin, onClose }: ModalProps) {
       }`}
       onClick={handleClose}
     >
+      {/* Bouton de fermeture FIXE, hors du contenu scrollable */}
+      <button
+        onClick={handleClose}
+        className="fixed z-50 w-10 h-10 flex items-center justify-center bg-white rounded-full shadow-lg text-gray-700 text-xl font-bold hover:brightness-110 transition cursor-pointer"
+        style={{
+          top: "calc(env(safe-area-inset-top, 0px) + 2rem)", // safe area + marge
+          right: "1rem",
+        }}
+        aria-label="Fermer"
+      >
+        ✕
+      </button>
+
+      {/* Contenu scrollable */}
       <div
-        className={`relative bg-white rounded-xl shadow-lg max-w-xl w-full transform transition-transform duration-300 overflow-hidden ${
+        className={`relative bg-white rounded-xl shadow-lg w-full max-w-xl max-h-screen overflow-y-auto transform transition-transform duration-300 ${
           isVisible ? "scale-100" : "scale-95"
         }`}
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Bouton de fermeture */}
-        <button
-          onClick={handleClose}
-          className="absolute top-3 right-3 text-gray-600 hover:text-white hover:shadow-[0_0_8px_rgba(0,0,0,0.6)] bg-gray-200 hover:bg-gray-800 transition-all duration-300 text-xl font-bold rounded-full w-8 h-8 flex items-center justify-center cursor-pointer z-10"
-          aria-label="Fermer"
-        >
-          ✕
-        </button>
-
-        {/* Image du soin */}
+        {/* Image */}
         <div className="relative h-48 w-full">
-          <Image
-            src={soin.image}
-            alt={soin.title}
-            fill
-            className="object-cover"
-          />
+          <Image src={soin.image} alt={soin.title} fill className="object-cover" />
         </div>
 
-        {/* Contenu du texte */}
+        {/* Texte */}
         <div className="p-6">
           <h3 className="text-2xl font-bold mb-4">{soin.title}</h3>
-          <p className="whitespace-pre-line text-gray-700">
-            {soin.description.trim()}
-          </p>
+          <p className="whitespace-pre-line text-gray-700">{soin.description.trim()}</p>
         </div>
       </div>
     </div>
