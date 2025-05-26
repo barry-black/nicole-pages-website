@@ -48,26 +48,6 @@ export default function MainPage() {
 
         {/* Accueil */}
         <Accueil />
-        {/* <section className="bg-teal-600 text-white">
-          <div className="flex flex-col items-center text-center px-4 py-12 md:py-20">
-            <Image
-              src="/assets/images/accueil.webp"
-              alt="Canapé"
-              width={1200}
-              height={800}
-              className="rounded-lg shadow-lg mb-6 w-full max-w-3xl"
-              priority
-            />
-
-            <h2 className="text-xl md:text-2xl italic mb-2">Thérapeute</h2>
-            <h1 className="text-3xl md:text-5xl font-bold mb-4">
-              Hypnose Reiki PNL
-            </h1>
-            <button className="border border-white px-6 py-2 rounded hover:bg-white hover:text-teal-600 transition">
-              + d&apos;info
-            </button>
-          </div>
-        </section> */}
 
         <section className="text-center py-8 bg-white">
           <button className="bg-black text-white px-6 py-3 rounded-full hover:bg-gray-800 transition">
