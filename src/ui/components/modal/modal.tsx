@@ -53,13 +53,21 @@ export function Modal({ soin, onClose }: ModalProps) {
       >
         {/* Image */}
         <div className="relative h-48 w-full">
-          <Image src={soin.image} alt={soin.title} fill className="object-cover" />
+          <Image
+            src={soin.image}
+            alt={soin.title}
+            fill
+            className="object-cover"
+          />
         </div>
 
         {/* Texte */}
         <div className="p-6">
           <h3 className="text-2xl font-bold mb-4">{soin.title}</h3>
-          <p className="whitespace-pre-line text-gray-700">{soin.description.trim()}</p>
+          <p className="whitespace-pre-line text-gray-700">
+            {soin.description.trim()}
+          </p>
+          <div style={{ height: 16 }}></div>
         </div>
       </div>
     </div>
