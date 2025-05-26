@@ -56,7 +56,7 @@ export default function MainPage() {
         </section>
 
         {/* Qui suis-je */}
-        <section id="cabinet" className="bg-[#d6f1f1] py-12 px-6">
+        <section id="who-i-am" className="bg-[#d6f1f1] py-12 px-6">
           <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-8 items-center">
             <div>
               <h2 className="text-teal-600 text-2xl font-bold mb-4">

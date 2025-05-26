@@ -19,7 +19,7 @@ export const Accueil = () => {
           src="/assets/images/accueil.webp"
           alt="Arrière-plan Accueil"
           fill
-          className="object-cover object-left-bottom scale-150"
+          className="object-cover scale-150 object-left-bottom"
           priority
         />
       </div>
@@ -32,7 +32,7 @@ export const Accueil = () => {
         <Typography variant="m-88-shadow" theme="white" weight="semibold">
           Hypnose Reiki PNL
         </Typography>
-        <Button variant="info" onClick={() => scrollToSection("cabinet")}>
+        <Button variant="info" onClick={() => scrollToSection("who-i-am")}>
           + d&apos;info
         </Button>
       </div>
