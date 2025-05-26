@@ -5,8 +5,9 @@ import { useState } from "react";
 import Image from "next/image";
 
 /* Component */
-import { Navigation } from "@/ui/components/navigation/navigation";
 import { Seo } from "@/ui/components/seo/seo";
+import { Navigation } from "@/ui/components/navigation/navigation";
+import { Accueil } from "@/ui/components/accueil/accueil";
 
 export default function MainPage() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -45,8 +46,9 @@ export default function MainPage() {
         {/* Sticky Navbar */}
         <Navigation menuOpen={menuOpen} toggleMenu={toggleMenu} />
 
-        {/* Hero */}
-        <section className="bg-teal-600 text-white">
+        {/* Accueil */}
+        <Accueil />
+        {/* <section className="bg-teal-600 text-white">
           <div className="flex flex-col items-center text-center px-4 py-12 md:py-20">
             <Image
               src="/assets/images/accueil.webp"
@@ -65,7 +67,7 @@ export default function MainPage() {
               + d&apos;info
             </button>
           </div>
-        </section>
+        </section> */}
 
         <section className="text-center py-8 bg-white">
           <button className="bg-black text-white px-6 py-3 rounded-full hover:bg-gray-800 transition">

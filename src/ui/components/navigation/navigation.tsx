@@ -36,7 +36,7 @@ export const Navigation = ({ menuOpen, toggleMenu }: NavigationProps) => {
 
   return (
     <header className="sticky top-0 z-50 bg-[var(--color-sky-blue)] text-white shadow">
-      <div className="flex items-center justify-between px-6 py-4 max-w-7xl mx-auto">
+      <div className="flex items-center justify-between px-6 max-w-7xl mx-auto">
         {/* Logo / scroll to top */}
         <div className="my-3">
           <Button
