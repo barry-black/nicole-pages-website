@@ -1,8 +1,9 @@
 "use client";
 
 /* public library */
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
+import { useSearchParams } from "next/navigation";
 
 /* Component */
 import { Seo } from "@/ui/components/seo/seo";
@@ -11,10 +12,23 @@ import { Accueil } from "@/ui/components/accueil/accueil";
 import { Modal } from "@/ui/components/modal/modal";
 import { Footer } from "@/ui/components/footer/footer";
 
+import { scrollToSection } from "@/api/scrollToSection";
+
 export default function MainPage() {
   const [menuOpen, setMenuOpen] = useState(false);
   const toggleMenu = () => setMenuOpen((prev) => !prev);
   const [activeSoin, setActiveSoin] = useState<number | null>(null);
+
+  const searchParams = useSearchParams();
+  const scrollToId = searchParams.get("scrollTo");
+
+  useEffect(() => {
+    if (scrollToId) {
+      scrollToSection(scrollToId);
+      // Nettoyage de l'URL sans recharger la page
+      window.history.replaceState(null, "", window.location.pathname);
+    }
+  }, [scrollToId]);
 
   const soins = [
     {

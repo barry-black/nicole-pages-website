@@ -2,7 +2,7 @@
 
 import { useCallback } from "react";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation"; // <-- import pour router et pathname
+import { usePathname, useRouter } from "next/navigation";
 import clsx from "clsx";
 
 import { Button } from "@/ui/design-system/button/button";
@@ -35,6 +35,21 @@ export const Navigation = ({ menuOpen, toggleMenu }: NavigationProps) => {
     }
   }, [pathname, menuOpen, toggleMenu, router]);
 
+  const navigateAndScroll = useCallback(
+    (id: string) => {
+      if (pathname === "/") {
+        // On est déjà sur la page principale → scroll direct
+        scrollToSection(id);
+        if (menuOpen) toggleMenu();
+      } else {
+        // Sinon, on navigue vers "/" en passant le param scrollTo
+        router.push(`/?scrollTo=${id}`);
+        if (menuOpen) toggleMenu();
+      }
+    },
+    [pathname, menuOpen, toggleMenu, router]
+  );
+
   return (
     <header className="sticky top-0 z-50 bg-[var(--color-sky-blue)] text-white shadow">
       <div className="flex items-center justify-between px-6 max-w-7xl mx-auto">
@@ -54,7 +69,7 @@ export const Navigation = ({ menuOpen, toggleMenu }: NavigationProps) => {
           <ul className="flex space-x-6 text-lg text-white">
             <li
               className="cursor-pointer hover:underline"
-              onClick={() => handleScroll("soins")}
+              onClick={() => navigateAndScroll("soins")}
             >
               Les soins
             </li>
@@ -70,7 +85,7 @@ export const Navigation = ({ menuOpen, toggleMenu }: NavigationProps) => {
             </li>
             <li
               className="cursor-pointer hover:underline"
-              onClick={() => handleScroll("contact")}
+              onClick={() => navigateAndScroll("contact")}
             >
               Contact
             </li>
@@ -123,31 +138,23 @@ export const Navigation = ({ menuOpen, toggleMenu }: NavigationProps) => {
         <ul className="flex flex-col space-y-4 text-lg text-white">
           <li
             className="cursor-pointer hover:underline pt-2"
-            onClick={() => handleScroll("soins")}
+            onClick={() => navigateAndScroll("soins")}
           >
             Les soins
           </li>
           <li>
-            <Link
-              href="/cabinet"
-              onClick={toggleMenu}
-              className="hover:underline"
-            >
+            <Link href="/cabinet" onClick={toggleMenu} className="hover:underline">
               Le cabinet
             </Link>
           </li>
           <li>
-            <Link
-              href="/tarifs"
-              onClick={toggleMenu}
-              className="hover:underline"
-            >
+            <Link href="/tarifs" onClick={toggleMenu} className="hover:underline">
               Les tarifs
             </Link>
           </li>
           <li
             className="cursor-pointer hover:underline pb-2"
-            onClick={() => handleScroll("contact")}
+            onClick={() => navigateAndScroll("contact")}
           >
             Contact
           </li>
