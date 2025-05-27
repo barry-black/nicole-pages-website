@@ -64,7 +64,7 @@ export const Navigation = ({ menuOpen, toggleMenu }: NavigationProps) => {
               </Link>
             </li>
             <li>
-              <Link href="/design-system" className="hover:underline">
+              <Link href="/tarifs" className="hover:underline">
                 Les tarifs
               </Link>
             </li>
