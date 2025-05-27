@@ -9,6 +9,7 @@ import { Seo } from "@/ui/components/seo/seo";
 import { Navigation } from "@/ui/components/navigation/navigation";
 import { Accueil } from "@/ui/components/accueil/accueil";
 import { Modal } from "@/ui/components/modal/modal";
+import { Footer } from "@/ui/components/footer/footer";
 
 export default function MainPage() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -115,7 +116,7 @@ Elle permet de :
         </section>
 
         {/* Citation */}
-        <section className="text-center py-8 bg-white text-lg italic text-[#008398]">
+        <section className="text-center mx-3 py-8 bg-white text-lg italic text-[#008398]">
           <p>
             Et si vous décidiez d’être heureux, parce que c’est bon pour vous...
           </p>
@@ -246,11 +247,7 @@ Elle permet de :
         </section>
 
         {/* Footer */}
-        <footer className="bg-[var(--color-sky-blue)] text-white text-sm py-6 px-6 text-center">
-          <p>©2025 by Nicole Pagès | Tous droits réservés</p>
-          <p>Sainte Livrade sur Lot | contact@nicolepages.com</p>
-          <p>Mentions légales | Politique de confidentialité</p>
-        </footer>
+        <Footer />
       </main>
     </>
   );

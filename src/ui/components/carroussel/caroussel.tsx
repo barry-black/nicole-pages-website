@@ -9,16 +9,16 @@ export const CabinetCarousel = () => {
   const carouselRef = useRef<HTMLDivElement>(null);
 
   const images = [
-    "/assets/images/cabinet1.jpg",
-    "/assets/images/cabinet2.jpg",
     "/assets/images/cabinet3.jpg",
     "/assets/images/cabinet4.jpg",
     "/assets/images/cabinet5.jpg",
     "/assets/images/cabinet6.jpg",
+    "/assets/images/cabinet1.jpg",
+    "/assets/images/cabinet2.jpg"
   ];
 
   // Duplication pour boucle
-  const loopImages = [...images, ...images, ...images,...images,...images];
+  const loopImages = [...images, ...images, ...images, ...images, ...images];
 
   const scroll = (direction: "left" | "right") => {
     if (!carouselRef.current) return;
@@ -26,7 +26,10 @@ export const CabinetCarousel = () => {
     const scrollAmount = clientWidth;
 
     carouselRef.current.scrollTo({
-      left: direction === "left" ? scrollLeft - scrollAmount : scrollLeft + scrollAmount,
+      left:
+        direction === "left"
+          ? scrollLeft - scrollAmount
+          : scrollLeft + scrollAmount,
       behavior: "smooth",
     });
   };
@@ -51,7 +54,10 @@ export const CabinetCarousel = () => {
 
     const node = carouselRef.current;
     node?.addEventListener("scroll", handleScroll);
-    node.scrollLeft = carousel.scrollWidth / 3; // centrer au chargement
+
+    if (node) {
+      node.scrollLeft = node.scrollWidth / 3;
+    }
 
     return () => node?.removeEventListener("scroll", handleScroll);
   }, []);
@@ -77,7 +83,7 @@ export const CabinetCarousel = () => {
             >
               <Image
                 src={src}
-                alt={`Cabinet ${i % images.length + 1}`}
+                alt={`Cabinet ${(i % images.length) + 1}`}
                 fill
                 style={{ objectFit: "cover" }}
                 sizes="(max-width: 768px) 90vw, 33vw"
