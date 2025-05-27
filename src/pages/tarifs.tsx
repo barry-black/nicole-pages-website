@@ -43,8 +43,7 @@ export default function TarifsPage() {
             src="/assets/images/tarifs.webp"
             alt="Arrière-plan Tarifs"
             fill
-            className="object-cover scale-150"
-            style={{ objectPosition: "center -300px" }}
+            className="object-cover scale-150 object-[center_100px] md:object-[center_-300px]"
             priority
           />
         </div>
