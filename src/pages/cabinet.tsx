@@ -37,7 +37,7 @@ export default function CabinetPage() {
             <ul className="space-y-2 text-lg font-medium text-[var(--color-sky-blue)]">
               <li>les lundis et jeudis : de 08h00 à 20h00</li>
               <li>les mardis : de 13h00 à 20h00</li>
-              <li>les vendredis : de 08h00 à 13h00</li>
+              <li>les vendredis : de 08h00 à 20h00</li>
             </ul>
           </div>
 

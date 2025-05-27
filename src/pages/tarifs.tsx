@@ -32,7 +32,7 @@ export default function TarifsPage() {
             </h2>
             <ul className="space-y-4 text-xl md:text-2xl font-medium text-[var(--color-sky-blue)]">
               <li>1 séance : 60€</li>
-              <li>2 séances : 200€</li>
+              <li>4 séances : 200€</li>
             </ul>
           </div>
         </section>
