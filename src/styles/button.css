@@ -47,12 +47,19 @@
     .btn-callAction {
         background-color: black;
         color: white;
+        padding: 12px 24px;
+        border-radius: 9999px;
+        transition: background-color 0.3s ease;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 1.5;
         border: 1px solid black;
     }
 
     .btn-callAction:hover {
         background-color: white;
         color: black;
+        border: 1px solid black;
     }
 
     .btn-disabled {
@@ -72,11 +79,20 @@
         border: 1px solid transparent;
         padding: 30px 45px 0px 0px;
         position: relative;
+
+        @apply transform origin-center transition-transform;
     }
 
     .icon-container {
         position: absolute;
         top: -40px;
         right: -60px;
+    }
+
+    /* Responsive landscape mobile: bouton ico 2x plus petit */
+    @media (max-width: 768px) and (orientation: landscape) {
+        .btn-ico {
+            @apply scale-50;
+        }
     }
 }

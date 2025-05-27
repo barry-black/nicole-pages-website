@@ -2,23 +2,25 @@
 
 /* public library */
 import { useState } from "react";
-import Image from "next/image";
 
-/* Component */
+/* Components */
 import { Seo } from "@/ui/components/seo/seo";
 import { Navigation } from "@/ui/components/navigation/navigation";
 import { CabinetCarousel } from "@/ui/components/carroussel/caroussel";
 import { Footer } from "@/ui/components/footer/footer";
+import { Button } from "@/ui/design-system/button/button"; // ✅ Import du bouton
 
 export default function CabinetPage() {
   const [menuOpen, setMenuOpen] = useState(false);
   const toggleMenu = () => setMenuOpen((prev) => !prev);
+
   return (
     <>
       <Seo
         title="Le Cabinet - Nicole Pagès"
         description="Découvrez le cadre apaisant du cabinet de Nicole Pagès à Sainte-Livrade-sur-Lot."
       />
+
       <main className="text-center text-[var(--color-sky-blue)] bg-white">
         {/* Sticky Navbar */}
         <Navigation menuOpen={menuOpen} toggleMenu={toggleMenu} />
@@ -38,9 +40,11 @@ export default function CabinetPage() {
           </ul>
         </section>
 
-        <button className="bg-black text-white px-6 py-3 rounded-full hover:bg-gray-800 transition my-6">
-          Prendre rendez-vous
-        </button>
+        <div className="my-6">
+          <Button variant="callAction" onClick={() => console.log("Prendre rendez-vous")}>
+            Prendre rendez-vous
+          </Button>
+        </div>
 
         {/* Footer */}
         <Footer />
