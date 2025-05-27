@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback } from "react";
+import { useCallback, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import clsx from "clsx";
@@ -16,6 +16,7 @@ interface NavigationProps {
 export const Navigation = ({ menuOpen, toggleMenu }: NavigationProps) => {
   const pathname = usePathname();
   const router = useRouter();
+  const navRef = useRef<HTMLElement>(null);
 
   const handleScroll = useCallback(
     (id: string) => {
@@ -50,8 +51,28 @@ export const Navigation = ({ menuOpen, toggleMenu }: NavigationProps) => {
     [pathname, menuOpen, toggleMenu, router]
   );
 
+  // Gestion du clic en dehors du menu pour fermer le menu
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (
+        menuOpen &&
+        navRef.current &&
+        !navRef.current.contains(event.target as Node)
+      ) {
+        toggleMenu();
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [menuOpen, toggleMenu]);
+
   return (
-    <header className="sticky top-0 z-50 bg-[var(--color-sky-blue)] text-white shadow">
+    <header
+      ref={navRef}
+      className="sticky top-0 z-50 bg-[var(--color-sky-blue)] text-white shadow"
+    >
       <div className="flex items-center justify-between px-6 max-w-7xl mx-auto">
         {/* Logo / scroll to top */}
         <div className="my-3">
