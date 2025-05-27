@@ -1,14 +1,11 @@
 "use client";
 
-/* public library */
 import { useCallback } from "react";
 import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation"; // <-- import pour router et pathname
 import clsx from "clsx";
 
-/* Component */
 import { Button } from "@/ui/design-system/button/button";
-
-/* Utility */
 import { scrollToSection } from "@/api/scrollToSection";
 
 interface NavigationProps {
@@ -17,6 +14,9 @@ interface NavigationProps {
 }
 
 export const Navigation = ({ menuOpen, toggleMenu }: NavigationProps) => {
+  const pathname = usePathname();
+  const router = useRouter();
+
   const handleScroll = useCallback(
     (id: string) => {
       scrollToSection(id);
@@ -26,9 +26,14 @@ export const Navigation = ({ menuOpen, toggleMenu }: NavigationProps) => {
   );
 
   const handleScrollToTop = useCallback(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-    if (menuOpen) toggleMenu();
-  }, [menuOpen, toggleMenu]);
+    if (pathname === "/") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      if (menuOpen) toggleMenu();
+    } else {
+      router.push("/");
+      if (menuOpen) toggleMenu();
+    }
+  }, [pathname, menuOpen, toggleMenu, router]);
 
   return (
     <header className="sticky top-0 z-50 bg-[var(--color-sky-blue)] text-white shadow">
@@ -47,11 +52,14 @@ export const Navigation = ({ menuOpen, toggleMenu }: NavigationProps) => {
         {/* Desktop menu */}
         <nav className="hidden md:block">
           <ul className="flex space-x-6 text-lg text-white">
-            <li className="cursor-pointer hover:underline" onClick={() => handleScroll("soins")}>
+            <li
+              className="cursor-pointer hover:underline"
+              onClick={() => handleScroll("soins")}
+            >
               Les soins
             </li>
             <li>
-              <Link href="/design-system" className="hover:underline">
+              <Link href="/cabinet" className="hover:underline">
                 Le cabinet
               </Link>
             </li>
@@ -60,7 +68,10 @@ export const Navigation = ({ menuOpen, toggleMenu }: NavigationProps) => {
                 Les tarifs
               </Link>
             </li>
-            <li className="cursor-pointer hover:underline" onClick={() => handleScroll("contact")}>
+            <li
+              className="cursor-pointer hover:underline"
+              onClick={() => handleScroll("contact")}
+            >
               Contact
             </li>
           </ul>
@@ -110,12 +121,15 @@ export const Navigation = ({ menuOpen, toggleMenu }: NavigationProps) => {
         )}
       >
         <ul className="flex flex-col space-y-4 text-lg text-white">
-          <li className="cursor-pointer hover:underline pt-2" onClick={() => handleScroll("soins")}>
+          <li
+            className="cursor-pointer hover:underline pt-2"
+            onClick={() => handleScroll("soins")}
+          >
             Les soins
           </li>
           <li>
             <Link
-              href="/design-system"
+              href="/cabinet"
               onClick={toggleMenu}
               className="hover:underline"
             >
@@ -131,7 +145,10 @@ export const Navigation = ({ menuOpen, toggleMenu }: NavigationProps) => {
               Les tarifs
             </Link>
           </li>
-          <li className="cursor-pointer hover:underline pb-2" onClick={() => handleScroll("contact")}>
+          <li
+            className="cursor-pointer hover:underline pb-2"
+            onClick={() => handleScroll("contact")}
+          >
             Contact
           </li>
         </ul>
