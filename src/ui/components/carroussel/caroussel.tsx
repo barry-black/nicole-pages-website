@@ -1,4 +1,6 @@
 "use client";
+
+/* public library */
 import { useRef, useEffect } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
@@ -16,7 +18,7 @@ export const CabinetCarousel = () => {
   ];
 
   // Duplication pour boucle
-  const loopImages = [...images, ...images, ...images]; // tête + vraie + fin
+  const loopImages = [...images, ...images, ...images,...images,...images];
 
   const scroll = (direction: "left" | "right") => {
     if (!carouselRef.current) return;
