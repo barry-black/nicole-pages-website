@@ -28,23 +28,28 @@ export default function CabinetPage() {
         {/* Galerie d’images */}
         <CabinetCarousel />
 
-        {/* Horaires */}
-        <section className="py-0">
-          <h2 className="text-2xl font-semibold mb-4 text-[var(--color-ocean-blue)]">
-            Horaires
-          </h2>
-          <ul className="space-y-2 text-lg font-medium">
-            <li>les lundis et jeudis : de 08h00 à 20h00</li>
-            <li>les mardis : de 13h00 à 20h00</li>
-            <li>les vendredis : de 08h00 à 13h00</li>
-          </ul>
-        </section>
+        {/* Bloc horaires + bouton */}
+        <section className="py-0 px-6 flex flex-col items-center bg-white">
+          <div className="max-w-prose text-center space-y-6">
+            <h2 className="text-2xl font-semibold text-[var(--color-ocean-blue)]">
+              Horaires
+            </h2>
+            <ul className="space-y-2 text-lg font-medium text-[var(--color-sky-blue)]">
+              <li>les lundis et jeudis : de 08h00 à 20h00</li>
+              <li>les mardis : de 13h00 à 20h00</li>
+              <li>les vendredis : de 08h00 à 13h00</li>
+            </ul>
+          </div>
 
-        <div className="my-6">
-          <Button variant="callAction" onClick={() => console.log("Prendre rendez-vous")}>
-            Prendre rendez-vous
-          </Button>
-        </div>
+          <div className="my-10">
+            <Button
+              variant="callAction"
+              onClick={() => console.log("Prendre rendez-vous")}
+            >
+              Prendre rendez-vous
+            </Button>
+          </div>
+        </section>
 
         {/* Footer */}
         <Footer />

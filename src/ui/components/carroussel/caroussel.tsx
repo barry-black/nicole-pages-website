@@ -57,7 +57,7 @@ export const CabinetCarousel = () => {
   }, []);
 
   return (
-    <section className="bg-white py-12 px-6">
+    <section className="bg-white py-5 px-6">
       <div className="relative max-w-6xl mx-auto">
         <button
           className="absolute left-0 top-1/2 -translate-y-1/2 z-10 p-2 bg-white rounded-full shadow hover:bg-gray-100"
