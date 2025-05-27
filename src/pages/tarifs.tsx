@@ -20,12 +20,12 @@ export default function TarifsPage() {
         description="Découvrez le cadre apaisant du cabinet de Nicole Pagès à Sainte-Livrade-sur-Lot."
       />
 
-      <main className="text-center text-[var(--color-sky-blue)] bg-white">
+      <main className="text-center text-[var(--color-sky-blue)] bg-white flex flex-col min-h-screen">
         {/* Sticky Navbar */}
         <Navigation menuOpen={menuOpen} toggleMenu={toggleMenu} />
 
         {/* Bloc horaires + bouton */}
-        <section className="my-10 px-6 flex flex-col items-center bg-white">
+        <section className="my-10 px-6 flex flex-col items-center bg-white relative z-10">
           <div className="max-w-prose text-center space-y-6">
             <h2 className="text-2xl font-semibold text-[var(--color-ocean-blue)]">
               Tarifs
@@ -37,13 +37,14 @@ export default function TarifsPage() {
           </div>
         </section>
 
-        {/* Image de fond zoomée, centrée en bas à gauche, sans filtre */}
-        <div className="absolute inset-0 z-0">
+        {/* Image en bas de page */}
+        <div className="relative w-full h-[300px] overflow-hidden z-0">
           <Image
             src="/assets/images/tarifs.webp"
-            alt="Arrière-plan Accueil"
+            alt="Arrière-plan Tarifs"
             fill
-            className="object-cover scale-150 object-left-bottom"
+            className="object-cover scale-150"
+            style={{ objectPosition: "center -300px" }}
             priority
           />
         </div>
