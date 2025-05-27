@@ -18,14 +18,6 @@ export const Navigation = ({ menuOpen, toggleMenu }: NavigationProps) => {
   const router = useRouter();
   const navRef = useRef<HTMLElement>(null);
 
-  const handleScroll = useCallback(
-    (id: string) => {
-      scrollToSection(id);
-      if (menuOpen) toggleMenu();
-    },
-    [menuOpen, toggleMenu]
-  );
-
   const handleScrollToTop = useCallback(() => {
     if (pathname === "/") {
       window.scrollTo({ top: 0, behavior: "smooth" });

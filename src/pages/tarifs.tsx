@@ -38,16 +38,16 @@ export default function TarifsPage() {
         </section>
 
         {/* Image en bas de page */}
-        <div className="relative w-full h-[300px] sm:h-[350px] md:h-[400px] overflow-hidden z-0">
-          <div className="absolute top-0 left-0 w-full h-40 bg-gradient-to-b from-white to-transparent z-10 pointer-events-none" />
-          <Image
-            src="/assets/images/tarifs.webp"
-            alt="Arrière-plan Tarifs"
-            fill
+<div className="relative w-full h-[300px] sm:h-[350px] md:h-[400px] overflow-hidden z-0">
+  <div className="absolute top-0 left-0 w-full h-40 bg-gradient-to-b from-white to-transparent z-10 pointer-events-none" />
+  <Image
+    src="/assets/images/tarifs.webp"
+    alt="Arrière-plan Tarifs"
+    fill
             className="object-cover scale-[1.6] object-[center_bottom] sm:scale-[1.4] md:scale-[1.5] md:object-[center_-300px]"
-            priority
-          />
-        </div>
+    priority
+  />
+</div>
 
         {/* Footer */}
         <Footer />
