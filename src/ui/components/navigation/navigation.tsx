@@ -164,7 +164,7 @@ export const Navigation = ({ menuOpen, toggleMenu }: NavigationProps) => {
           menuOpen ? "max-h-96 opacity-100 py-6" : "max-h-0 opacity-0 py-0"
         )}
       >
-        <ul className="flex flex-col space-y-4 text-lg text-white">
+        <ul className="flex flex-col space-y-4 text-lg text-white text-left">
           <li
             className="cursor-pointer hover:underline pt-2"
             onClick={() => navigateAndScroll("soins")}
