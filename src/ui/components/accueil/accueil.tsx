@@ -1,18 +1,16 @@
 "use client";
 
-/* public library */
 import Image from "next/image";
-
-/* Component */
 import { Button } from "@/ui/design-system/button/button";
 import { Typography } from "@/ui/design-system/typography/typography";
-
-/* API */
 import { scrollToSection } from "@/api/scrollToSection";
 
 export const Accueil = () => {
   return (
-    <section className="relative h-[600px] md:h-[700px] overflow-hidden">
+    <section
+      className="relative overflow-hidden"
+      style={{ height: "calc(100vh - 64px)" }} // 64px = hauteur nav
+    >
       {/* Image de fond zoomée, centrée en bas à gauche, sans filtre */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -24,7 +22,7 @@ export const Accueil = () => {
         />
       </div>
 
-      {/* Contenu centré */}
+      {/* Contenu centré verticalement et horizontalement */}
       <div className="relative z-10 flex flex-col items-center justify-center text-white text-center h-full px-4">
         <Typography variant="ds-62-shadow" theme="white" weight="semibold">
           Thérapeute
