@@ -22,7 +22,6 @@ export const Navigation = ({ menuOpen, toggleMenu }: NavigationProps) => {
   // Détection responsive landscape mobile (par exemple)
   useEffect(() => {
     function checkCompact() {
-      const navHeight = navRef.current?.offsetHeight || 0;
       const windowHeight = window.innerHeight;
       const windowWidth = window.innerWidth;
 
@@ -33,8 +32,6 @@ export const Navigation = ({ menuOpen, toggleMenu }: NavigationProps) => {
         setCompact(false);
       }
 
-      // Pour debug
-      // console.log({ windowHeight, windowWidth, navHeight, compact });
     }
     checkCompact();
     window.addEventListener("resize", checkCompact);
