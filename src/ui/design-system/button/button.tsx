@@ -7,7 +7,7 @@ interface Props {
   icon?: string;
   isLoading?: boolean;
   children?: React.ReactNode;
-  onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void; // Ajout
+  onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
 
 export const Button = ({
@@ -15,12 +15,12 @@ export const Button = ({
   icon,
   isLoading,
   children,
-  onClick,  // réception du onClick
+  onClick,
 }: Props) => {
   let variantStyles: string = "";
 
   switch (variant) {
-    case "topMenu": // default
+    case "topMenu":
       variantStyles = "btn btn-topMenu";
       break;
     case "info":
@@ -55,7 +55,7 @@ export const Button = ({
           return;
         }
         if (onClick) {
-          onClick(e);  // appel du onClick reçu en prop
+          onClick(e);
         }
       }}
     >

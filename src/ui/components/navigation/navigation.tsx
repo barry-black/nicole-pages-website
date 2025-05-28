@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import clsx from "clsx";
@@ -17,6 +17,29 @@ export const Navigation = ({ menuOpen, toggleMenu }: NavigationProps) => {
   const pathname = usePathname();
   const router = useRouter();
   const navRef = useRef<HTMLElement>(null);
+  const [compact, setCompact] = useState(false);
+
+  // Détection responsive landscape mobile (par exemple)
+  useEffect(() => {
+    function checkCompact() {
+      const navHeight = navRef.current?.offsetHeight || 0;
+      const windowHeight = window.innerHeight;
+      const windowWidth = window.innerWidth;
+
+      // Exemple simple : mode compact si en paysage ET largeur max 768px
+      if (windowWidth <= 768 && windowWidth > windowHeight) {
+        setCompact(true);
+      } else {
+        setCompact(false);
+      }
+
+      // Pour debug
+      // console.log({ windowHeight, windowWidth, navHeight, compact });
+    }
+    checkCompact();
+    window.addEventListener("resize", checkCompact);
+    return () => window.removeEventListener("resize", checkCompact);
+  }, []);
 
   const handleScrollToTop = useCallback(() => {
     if (pathname === "/") {
@@ -31,11 +54,9 @@ export const Navigation = ({ menuOpen, toggleMenu }: NavigationProps) => {
   const navigateAndScroll = useCallback(
     (id: string) => {
       if (pathname === "/") {
-        // On est déjà sur la page principale → scroll direct
         scrollToSection(id);
         if (menuOpen) toggleMenu();
       } else {
-        // Sinon, on navigue vers "/" en passant le param scrollTo
         router.push(`/?scrollTo=${id}`);
         if (menuOpen) toggleMenu();
       }
@@ -43,7 +64,6 @@ export const Navigation = ({ menuOpen, toggleMenu }: NavigationProps) => {
     [pathname, menuOpen, toggleMenu, router]
   );
 
-  // Gestion du clic en dehors du menu pour fermer le menu
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (
@@ -63,10 +83,12 @@ export const Navigation = ({ menuOpen, toggleMenu }: NavigationProps) => {
   return (
     <header
       ref={navRef}
-      className="sticky top-0 z-50 bg-[var(--color-sky-blue)] text-white shadow"
+      className={clsx(
+        "sticky top-0 z-50 bg-[var(--color-sky-blue)] text-white shadow",
+        compact && "compact-header"
+      )}
     >
       <div className="flex items-center justify-between px-6 max-w-7xl mx-auto">
-        {/* Logo / scroll to top */}
         <div className="my-3">
           <Button
             variant="ico"
@@ -77,7 +99,6 @@ export const Navigation = ({ menuOpen, toggleMenu }: NavigationProps) => {
           </Button>
         </div>
 
-        {/* Desktop menu */}
         <nav className="hidden md:block">
           <ul className="flex space-x-6 text-lg text-white">
             <li
@@ -105,7 +126,6 @@ export const Navigation = ({ menuOpen, toggleMenu }: NavigationProps) => {
           </ul>
         </nav>
 
-        {/* Mobile burger */}
         <div className="md:hidden">
           <button
             onClick={toggleMenu}
@@ -141,7 +161,6 @@ export const Navigation = ({ menuOpen, toggleMenu }: NavigationProps) => {
         </div>
       </div>
 
-      {/* Mobile menu with animation */}
       <div
         className={clsx(
           "md:hidden overflow-hidden bg-[var(--color-ocean-blue)] transition-all duration-500 ease-in-out px-6",
