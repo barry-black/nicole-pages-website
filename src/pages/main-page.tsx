@@ -73,7 +73,7 @@ Elle permet de :
 • comprendre et maîtriser l’excellence de ceux qui réussissent dans des domaines aussi variés que le sport, l’entreprise, la pédagogie, la thérapie, le social…  
 • acquérir des apprentissages clés pour tous ceux qui sont dans des métiers d’accompagnement ou en relation avec autrui
       `,
-      image: "/assets/images/accueil.webp",
+      image: "/assets/images/pnl.png",
       objectPosition: "center 40%",
     },
   ];
