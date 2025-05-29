@@ -125,8 +125,8 @@ export default function MainPage() {
                 text: "Bienveillance et sérénité sont les mots qui résument le mieux chaque instant passé avec Nicole. Les séances d'hypnose que j'ai réalisé avec elle ont été très efficaces et enrichissantes puisque Nicole complète ces séances avec d'autres techniques de relaxation et des précieux conseils.",
               },
               {
-                name: "Hélène M.",
-                text: "Bienveillance et sérénité sont les mots qui résument le mieux chaque instant passé avec Nicole. Les séances d'hypnose que j'ai réalisé avec elle ont été très efficaces et enrichissantes puisque Nicole complète ces séances avec d'autres techniques de relaxation et des précieux conseils.",
+                name: "Emilie F.",
+                text: "Une expérience incroyable et très enrichissante, Nicole est une professionnelle très à l’écoute. Les bénéfices se font déjà ressentir. Elle m’a aider à contrôler mon anxiété. Merci encore pour votre aide précieuse!",
               },
               {
                 name: "Julia",
