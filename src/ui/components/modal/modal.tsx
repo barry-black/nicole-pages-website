@@ -3,6 +3,7 @@ import Image from "next/image";
 
 interface ModalProps {
   soin: {
+    id: string;
     title: string;
     description: string;
     image: string;
@@ -15,12 +16,31 @@ export function Modal({ soin, onClose }: ModalProps) {
 
   useEffect(() => {
     setIsVisible(true);
-  }, []);
+
+    // ⬅️ Ajoute une entrée dans l'historique pour permettre le retour
+    window.history.pushState({ modal: soin.id }, "", `?modal=${soin.id}`);
+
+    const handlePopState = () => {
+      // Ferme la modale quand on revient en arrière
+      setIsVisible(false);
+      setTimeout(() => {
+        onClose();
+      }, 300);
+    };
+
+    window.addEventListener("popstate", handlePopState);
+
+    return () => {
+      window.removeEventListener("popstate", handlePopState);
+    };
+  }, [onClose, soin.id]);
 
   const handleClose = () => {
     setIsVisible(false);
+
     setTimeout(() => {
-      onClose();
+      // 🔄 Reviens en arrière dans l'historique pour déclencher popstate
+      window.history.back();
     }, 300);
   };
 
@@ -31,12 +51,12 @@ export function Modal({ soin, onClose }: ModalProps) {
       }`}
       onClick={handleClose}
     >
-      {/* Bouton de fermeture FIXE, hors du contenu scrollable */}
+      {/* Bouton de fermeture */}
       <button
         onClick={handleClose}
         className="fixed z-50 w-10 h-10 flex items-center justify-center bg-white rounded-full shadow-lg text-gray-700 text-xl font-bold hover:brightness-110 transition cursor-pointer"
         style={{
-          top: "calc(env(safe-area-inset-top, 0px) + 2rem)", // safe area + marge
+          top: "calc(env(safe-area-inset-top, 0px) + 2rem)",
           right: "1rem",
         }}
         aria-label="Fermer"
@@ -44,7 +64,7 @@ export function Modal({ soin, onClose }: ModalProps) {
         ✕
       </button>
 
-      {/* Contenu scrollable */}
+      {/* Contenu modal */}
       <div
         className={`relative bg-white rounded-xl shadow-lg w-full max-w-xl max-h-screen overflow-y-auto transform transition-transform duration-300 ${
           isVisible ? "scale-100" : "scale-95"
@@ -67,7 +87,6 @@ export function Modal({ soin, onClose }: ModalProps) {
           <p className="whitespace-pre-line text-gray-700">
             {soin.description.trim()}
           </p>
-          <div style={{ height: 16 }}></div>
         </div>
       </div>
     </div>

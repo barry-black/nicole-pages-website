@@ -9,6 +9,7 @@ import { Modal } from "@/ui/components/modal/modal";
 import { Typography } from "@/ui/design-system/typography/typography";
 
 interface Soin {
+  id: string;
   title: string;
   description: string;
   image: string;
@@ -20,6 +21,7 @@ export function Soins() {
 
   const soins: Soin[] = [
     {
+      id: "reiki",
       title: "Reiki",
       description: `
 Le Reiki est un art énergétique d'origine japonaise développé par Mikao Usui à la fin du 19e siècle. "Rei" signifie "l'universel", le "tout" : la matière, l'âme et l'esprit. Et "ki" (ou "Qi") renvoie à l'énergie vitale qui circule en chaque individu, comme dans la médecine chinoise. Le Reiki est la méthode de mise ou remise en contact de l'énergie universelle avec la force vitale propre à chacun de nous.
@@ -34,6 +36,7 @@ Comme toute pratique holistique, le Reiki permettrait :
       image: "/assets/images/reiki.webp",
     },
     {
+      id: "hypnose",
       title: "Hypnose",
       description: `
 Apparue au XVIIème siècle, l’hypnose ericksonienne est une manière douce et efficace d’accéder à notre inconscient, véritable réservoir de ressources, afin d’évoluer et de se « soigner » de la meilleure façon possible.
@@ -50,6 +53,7 @@ L'hypnose permet :
       image: "/assets/images/hypnose.webp",
     },
     {
+      id: "pnl",
       title: "PNL",
       description: `
 La PNL (Programmation Neuro-linguistique) est une discipline qui s’inscrit dans le champ des sciences humaines. Elle est un modèle qui permet à chacun de se réaliser dans sa vie personnelle et professionnelle.
@@ -85,7 +89,7 @@ Elle permet de :
       <div className="grid gap-8 md:grid-cols-3 max-w-5xl mx-auto">
         {soins.map((soin, i) => (
           <div
-            key={i}
+            key={soin.id}
             onClick={() => setActiveSoin(i)}
             className="cursor-pointer bg-white rounded-xl shadow-md overflow-hidden transition-transform duration-300 hover:scale-[1.03] hover:shadow-lg text-center"
           >
