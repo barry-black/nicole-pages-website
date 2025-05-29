@@ -12,6 +12,7 @@ import { Accueil } from "@/ui/components/accueil/accueil";
 import { Button } from "@/ui/design-system/button/button";
 import { Soins } from "@/ui/components/soins/soins";
 import { Footer } from "@/ui/components/footer/footer";
+import { Typography } from "@/ui/design-system/typography/typography";
 
 /* API */
 import { scrollToSection } from "@/api/scrollToSection";
@@ -55,10 +56,10 @@ export default function MainPage() {
         </section>
 
         {/* Qui suis-je */}
-        <section id="who-i-am" className="bg-[#d6f1f1] py-12 px-6">
+        <section id="who-i-am" className="bg-[var(--color-pale-blue)] py-12 px-6">
           <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-8 items-center">
             <div>
-              <h2 className="text-teal-600 text-2xl font-bold mb-4">
+              <h2 className="text-[var(--color-ocean-blue)] text-2xl font-bold mb-4">
                 Qui suis-je ?
               </h2>
               <p className="mb-4">
@@ -85,7 +86,10 @@ export default function MainPage() {
               />
             </div>
           </div>
-          <section className="text-center mx-3 py-8 text-lg italic text-[#008398]">
+          <section
+            className="text-center mx-3 py-8 text-[30px] text-[var(--color-ocean-blue)]"
+            style={{ fontFamily: "var(--font-secondary)" }}
+          >
             <p>
               Et si vous décidiez d’être heureux, parce que c’est bon pour
               vous...
@@ -96,10 +100,12 @@ export default function MainPage() {
         {/* Citation */}
 
         <section className="text-center py-8 bg-white">
-          <blockquote className="text-2xl font-semibold text-[#008398] mb-2">
+          <blockquote className="text-2xl font-semibold text-[var(--color-ocean-blue)] mb-2">
             “La paix vient de l’intérieur. Ne la cherchez pas à l’extérieur.”
           </blockquote>
-          <p className="text-[#008398] italic">Bouddah</p>
+          <Typography variant="ds-40" theme="ocean-blue" component="p">
+            Bouddah
+          </Typography>
         </section>
 
         {/* Soins */}
