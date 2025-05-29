@@ -10,9 +10,13 @@ import { CabinetCarousel } from "@/ui/components/carroussel/caroussel";
 import { Footer } from "@/ui/components/footer/footer";
 import { Button } from "@/ui/design-system/button/button"; // ✅ Import du bouton
 
+/* Hooks */
+import { useNavigateAndScroll } from "@/hooks/useNavigateAndScroll";
+
 export default function CabinetPage() {
   const [menuOpen, setMenuOpen] = useState(false);
   const toggleMenu = () => setMenuOpen((prev) => !prev);
+  const navigateAndScroll = useNavigateAndScroll();
 
   return (
     <>
@@ -43,7 +47,7 @@ export default function CabinetPage() {
           <div className="my-10">
             <Button
               variant="callAction"
-              onClick={() => console.log("Prendre rendez-vous")}
+              onClick={() => navigateAndScroll("contact")}
             >
               Prendre rendez-vous
             </Button>

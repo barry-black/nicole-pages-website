@@ -1,12 +1,16 @@
 "use client";
 
+/* public library */
 import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import clsx from "clsx";
 
+/* Component */
 import { Button } from "@/ui/design-system/button/button";
-import { scrollToSection } from "@/api/scrollToSection";
+
+/* Hook */
+import { useNavigateAndScroll } from "@/hooks/useNavigateAndScroll";
 
 interface NavigationProps {
   menuOpen: boolean;
@@ -31,7 +35,6 @@ export const Navigation = ({ menuOpen, toggleMenu }: NavigationProps) => {
       } else {
         setCompact(false);
       }
-
     }
     checkCompact();
     window.addEventListener("resize", checkCompact);
@@ -48,18 +51,7 @@ export const Navigation = ({ menuOpen, toggleMenu }: NavigationProps) => {
     }
   }, [pathname, menuOpen, toggleMenu, router]);
 
-  const navigateAndScroll = useCallback(
-    (id: string) => {
-      if (pathname === "/") {
-        scrollToSection(id);
-        if (menuOpen) toggleMenu();
-      } else {
-        router.push(`/?scrollTo=${id}`);
-        if (menuOpen) toggleMenu();
-      }
-    },
-    [pathname, menuOpen, toggleMenu, router]
-  );
+  const navigateAndScroll = useNavigateAndScroll(menuOpen, toggleMenu);
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -172,12 +164,20 @@ export const Navigation = ({ menuOpen, toggleMenu }: NavigationProps) => {
             Les soins
           </li>
           <li>
-            <Link href="/cabinet" onClick={toggleMenu} className="hover:underline">
+            <Link
+              href="/cabinet"
+              onClick={toggleMenu}
+              className="hover:underline"
+            >
               Le cabinet
             </Link>
           </li>
           <li>
-            <Link href="/tarifs" onClick={toggleMenu} className="hover:underline">
+            <Link
+              href="/tarifs"
+              onClick={toggleMenu}
+              className="hover:underline"
+            >
               Les tarifs
             </Link>
           </li>
