@@ -1,9 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Button } from "@/ui/design-system/button/button";
 import { Typography } from "@/ui/design-system/typography/typography";
-import { scrollToSection } from "@/api/scrollToSection";
 
 export const Accueil = () => {
   return (
@@ -30,9 +28,6 @@ export const Accueil = () => {
         <Typography variant="m-88-shadow" theme="white" weight="semibold">
           Hypnose Reiki PNL
         </Typography>
-        <Button variant="info" onClick={() => scrollToSection("who-i-am")}>
-          + d&apos;info
-        </Button>
       </div>
     </section>
   );
