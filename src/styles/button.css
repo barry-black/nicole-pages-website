@@ -49,19 +49,42 @@
         color: white;
         padding: 12px 24px;
         border-radius: 9999px;
-        transition: background-color 0.3s ease;
+        transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
         font-size: 16px;
         font-weight: 500;
         line-height: 1.5;
         border: 1px solid black;
     }
 
-    .btn-callAction:hover {
-        background: linear-gradient(135deg, #eaeaea, #f7f7f7);
-        color: #333;
-        border-color: #ccc;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-        transform: scale(1.03);
+    /* Desktop : hover classique */
+    @media (hover: hover) and (pointer: fine) {
+        .btn-callAction:hover {
+            background: linear-gradient(135deg, #eaeaea, #f7f7f7);
+            color: #333;
+            border-color: #ccc;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transform: scale(1.03);
+        }
+    }
+
+    /* Mobile : pas de hover, style sur active (= tap) */
+    @media (hover: none) and (pointer: coarse) {
+        .btn-callAction:hover {
+            /* désactive l'effet hover pour ne pas rester bloqué */
+            background: black;
+            color: white;
+            border-color: black;
+            box-shadow: none;
+            transform: none;
+        }
+
+        .btn-callAction:active {
+            background: linear-gradient(135deg, #eaeaea, #f7f7f7);
+            color: #333;
+            border-color: #ccc;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transform: scale(1.03);
+        }
     }
 
     .btn-disabled {
