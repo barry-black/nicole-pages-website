@@ -65,8 +65,8 @@ Elle permet de :
   ];
 
   return (
-    <section id="soins" className="bg-[var(--color-pale-blue)] py-3 px-6">
-      <div className="text-center mb-6">
+    <section id="soins" className="bg-[var(--color-pale-blue)] py-6 px-6">
+      <div className="text-center mb-8 max-w-xl mx-auto">
         <Typography
           variant="m-40"
           weight="semibold"
@@ -75,31 +75,33 @@ Elle permet de :
         >
           Soins
         </Typography>
-        <p className="text-sm text-gray-600 max-w-xl mx-auto">
+        <p className="text-gray-600 mt-4 leading-relaxed text-sm">
           Ces thérapies ne se substituent en aucun cas à un traitement médical
           et ne dispensent en aucun cas de consulter et/ou de suivre les
           recommandations allopathiques
         </p>
       </div>
 
-      <div className="grid gap-6 md:grid-cols-3 max-w-5xl mx-auto mt-8">
+      <div className="grid gap-8 md:grid-cols-3 max-w-5xl mx-auto">
         {soins.map((soin, i) => (
           <div
             key={i}
-            className="relative group cursor-pointer"
             onClick={() => setActiveSoin(i)}
+            className="cursor-pointer bg-white rounded-xl shadow-md overflow-hidden transition-transform duration-300 hover:scale-[1.03] hover:shadow-lg text-center"
           >
             <div className="relative w-full h-48">
               <Image
                 src={soin.image}
                 alt={soin.title}
                 fill
-                className="rounded-lg shadow object-cover"
+                className="object-cover"
                 style={{ objectPosition: soin.objectPosition || "center" }}
               />
             </div>
-            <div className="text-center mt-2 text-lg font-medium">
-              {soin.title}
+            <div className="p-4">
+              <h3 className="text-lg font-semibold text-gray-800 mb-1">
+                {soin.title}
+              </h3>
             </div>
           </div>
         ))}

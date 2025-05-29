@@ -5,6 +5,7 @@
 @import "./colors.css";
 @import "./typography.css";
 @import "./button.css";
+@import "./soins.css";
 
 @layer base {
     html {
