@@ -11,6 +11,7 @@ import { Navigation } from "@/ui/components/navigation/navigation";
 import { Accueil } from "@/ui/components/accueil/accueil";
 import { Modal } from "@/ui/components/modal/modal";
 import { Footer } from "@/ui/components/footer/footer";
+import { Button } from "@/ui/design-system/button/button";
 
 /* API */
 import { scrollToSection } from "@/api/scrollToSection";
@@ -92,9 +93,12 @@ Elle permet de :
         <Accueil />
 
         <section className="text-center py-8 bg-white">
-          <button className="bg-black text-white px-6 py-3 rounded-full hover:bg-gray-800 transition">
-            Prendre rendez-vous
-          </button>
+            <Button
+              variant="callAction"
+              onClick={() => scrollToSection("contact")}
+            >
+              Prendre rendez-vous
+            </Button>
         </section>
 
         {/* Qui suis-je */}
