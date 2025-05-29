@@ -1,6 +1,6 @@
 "use client";
 
-/* public library */
+/* Public Library */
 import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";

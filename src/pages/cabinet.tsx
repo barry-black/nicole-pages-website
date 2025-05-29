@@ -1,6 +1,6 @@
 "use client";
 
-/* public library */
+/* Public Library */
 import { useState } from "react";
 
 /* Components */
@@ -8,7 +8,7 @@ import { Seo } from "@/ui/components/seo/seo";
 import { Navigation } from "@/ui/components/navigation/navigation";
 import { CabinetCarousel } from "@/ui/components/carroussel/caroussel";
 import { Footer } from "@/ui/components/footer/footer";
-import { Button } from "@/ui/design-system/button/button"; // ✅ Import du bouton
+import { Button } from "@/ui/design-system/button/button";
 
 /* Hooks */
 import { useNavigateAndScroll } from "@/hooks/useNavigateAndScroll";

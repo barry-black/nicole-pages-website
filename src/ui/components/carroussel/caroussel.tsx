@@ -1,6 +1,6 @@
 "use client";
 
-/* public library */
+/* Public Library */
 import { useRef, useEffect } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";

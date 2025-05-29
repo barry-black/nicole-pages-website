@@ -1,6 +1,6 @@
 "use client";
 
-/* public library */
+/* Public Library */
 import { useState } from "react";
 import Image from "next/image";
 

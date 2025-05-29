@@ -1,6 +1,6 @@
 "use client";
 
-/* public library */
+/* Public Library */
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
@@ -12,6 +12,7 @@ import { Accueil } from "@/ui/components/accueil/accueil";
 import { Modal } from "@/ui/components/modal/modal";
 import { Footer } from "@/ui/components/footer/footer";
 
+/* API */
 import { scrollToSection } from "@/api/scrollToSection";
 
 export default function MainPage() {
