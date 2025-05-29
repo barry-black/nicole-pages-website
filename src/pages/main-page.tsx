@@ -118,7 +118,7 @@ export default function MainPage() {
             {[
               {
                 name: "Anaïs",
-                text: "Nicole est très a l'écoute des gens et donne énormément de son temps et d'énergie. Elle n'est pas dans le jugement et pour moi c'est une personne magnifique qui aime les gens... Dès mon premier rdv, elle m'a beaucoup aidé et apaisé.",
+                text: "Nicole est très à l'écoute des gens et donne énormément de son temps et d'énergie. Elle n'est pas dans le jugement et pour moi c'est une personne magnifique qui aime les gens... Dès mon premier rdv, elle m'a beaucoup aidé et apaisé.",
               },
               {
                 name: "Christelle B.",
