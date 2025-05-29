@@ -57,9 +57,11 @@
     }
 
     .btn-callAction:hover {
-        background-color: white;
-        color: black;
-        border: 1px solid black;
+        background: linear-gradient(135deg, #eaeaea, #f7f7f7);
+        color: #333;
+        border-color: #ccc;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        transform: scale(1.03);
     }
 
     .btn-disabled {
