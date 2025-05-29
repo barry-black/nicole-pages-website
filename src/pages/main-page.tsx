@@ -46,10 +46,10 @@ export default function MainPage() {
         <Accueil />
 
         <section className="text-center py-8 bg-white">
-            <Button
-              variant="callAction"
-              onClick={() => scrollToSection("contact")}
-            >
+          <Button
+            variant="callAction"
+            onClick={() => scrollToSection("contact")}
+          >
             Prendre rendez-vous
           </Button>
         </section>
@@ -85,14 +85,15 @@ export default function MainPage() {
               />
             </div>
           </div>
+          <section className="text-center mx-3 py-8 text-lg italic text-[#008398]">
+            <p>
+              Et si vous décidiez d’être heureux, parce que c’est bon pour
+              vous...
+            </p>
+          </section>
         </section>
 
         {/* Citation */}
-        <section className="text-center mx-3 py-8 bg-white text-lg italic text-[#008398]">
-          <p>
-            Et si vous décidiez d’être heureux, parce que c’est bon pour vous...
-          </p>
-        </section>
 
         <section className="text-center py-8 bg-white">
           <blockquote className="text-2xl font-semibold text-[#008398] mb-2">

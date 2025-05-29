@@ -6,6 +6,7 @@ import Image from "next/image";
 
 /* Component */
 import { Modal } from "@/ui/components/modal/modal";
+import { Typography } from "@/ui/design-system/typography/typography";
 
 interface Soin {
   title: string;
@@ -64,9 +65,16 @@ Elle permet de :
   ];
 
   return (
-    <section id="soins" className="bg-[#d6f1f1] py-12 px-6">
+    <section id="soins" className="bg-[var(--color-pale-blue)] py-3 px-6">
       <div className="text-center mb-6">
-        <h2 className="text-2xl font-bold text-teal-700 mb-2">Soins</h2>
+        <Typography
+          variant="m-40"
+          weight="semibold"
+          theme="ocean-blue"
+          component="h2"
+        >
+          Soins
+        </Typography>
         <p className="text-sm text-gray-600 max-w-xl mx-auto">
           Ces thérapies ne se substituent en aucun cas à un traitement médical
           et ne dispensent en aucun cas de consulter et/ou de suivre les
