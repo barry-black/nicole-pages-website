@@ -28,16 +28,16 @@
         font-size: 50px;
     }
 
-.text-ds-62-shadow {
-  @apply text-[30px] sm:text-[40px] md:text-[50px] lg:text-[62px] xl:text-[70px] 2xl:text-[80px];
-  font-family: var(--font-secondary);
-  line-height: 1.2;
-  tracking: -0.02em;
-  text-shadow:
-    0 2px 4px rgba(0, 0, 0, 0.4),
-    0 4px 10px rgba(0, 0, 0, 0.5),
-    0 6px 15px rgba(0, 0, 0, 0.6);
-}
+    .text-ds-62-shadow {
+        @apply text-[36px] sm:text-[48px] md:text-[60px] lg:text-[72px] xl:text-[84px] 2xl:text-[96px];
+        font-family: var(--font-secondary);
+        line-height: 1.15;
+        letter-spacing: -0.02em;
+        text-shadow:
+            0 2px 4px rgba(0, 0, 0, 0.4),
+            0 4px 10px rgba(0, 0, 0, 0.5),
+            0 6px 15px rgba(0, 0, 0, 0.6);
+    }
 
     .text-m {
         font-family: var(--font-primary);
@@ -78,17 +78,16 @@
         font-size: 40px;
     }
 
-.text-m-88-shadow {
-  /* tailles plus progressives */
-  @apply text-[28px] sm:text-[36px] md:text-[50px] lg:text-[70px] xl:text-[88px] 2xl:text-[96px];
-  font-family: var(--font-primary);
-  line-height: 1.2;
-  tracking: -0.02em;
-  text-shadow:
-    0 2px 4px rgba(0, 0, 0, 0.4),
-    0 4px 10px rgba(0, 0, 0, 0.5),
-    0 6px 15px rgba(0, 0, 0, 0.6);
-}
+    .text-m-88-shadow {
+        @apply text-[36px] sm:text-[48px] md:text-[64px] lg:text-[80px] xl:text-[96px] 2xl:text-[108px];
+        font-family: var(--font-primary);
+        line-height: 1.15;
+        letter-spacing: -0.015em;
+        text-shadow:
+            0 2px 4px rgba(0, 0, 0, 0.4),
+            0 4px 10px rgba(0, 0, 0, 0.5),
+            0 6px 15px rgba(0, 0, 0, 0.6);
+    }
 
     .text-m-96 {
         font-size: 96px;

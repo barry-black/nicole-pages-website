@@ -26,7 +26,10 @@ export const Accueil = () => {
           Thérapeute
         </Typography>
         <Typography variant="m-88-shadow" theme="white" weight="semibold">
-          Hypnose Reiki PNL
+          Hypnose PNL
+        </Typography>
+        <Typography variant="m-88-shadow" theme="white" weight="semibold">
+          Coaching Reiki
         </Typography>
       </div>
     </section>
