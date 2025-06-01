@@ -16,31 +16,12 @@ export function Modal({ soin, onClose }: ModalProps) {
 
   useEffect(() => {
     setIsVisible(true);
-
-    // ⬅️ Ajoute une entrée dans l'historique pour permettre le retour
-    window.history.pushState({ modal: soin.id }, "", `?modal=${soin.id}`);
-
-    const handlePopState = () => {
-      // Ferme la modale quand on revient en arrière
-      setIsVisible(false);
-      setTimeout(() => {
-        onClose();
-      }, 300);
-    };
-
-    window.addEventListener("popstate", handlePopState);
-
-    return () => {
-      window.removeEventListener("popstate", handlePopState);
-    };
-  }, [onClose, soin.id]);
+  }, []);
 
   const handleClose = () => {
     setIsVisible(false);
-
     setTimeout(() => {
-      // 🔄 Reviens en arrière dans l'historique pour déclencher popstate
-      window.history.back();
+      onClose();
     }, 300);
   };
 
