@@ -90,12 +90,12 @@ Comme toute pratique holistique, le Reiki permettrait :
         </p>
       </div>
 
-      <div className="grid gap-8 md:grid-cols-3 max-w-5xl mx-auto">
+      <div className="flex flex-wrap justify-center gap-8 max-w-6xl mx-auto">
         {soins.map((soin, i) => (
           <div
             key={soin.id}
             onClick={() => setActiveSoin(i)}
-            className="cursor-pointer bg-white rounded-xl shadow-md overflow-hidden transition-transform duration-300 hover:scale-[1.03] hover:shadow-lg text-center"
+            className="w-[300px] cursor-pointer bg-white rounded-xl shadow-md overflow-hidden transition-transform duration-300 hover:scale-[1.03] hover:shadow-lg text-center"
           >
             <div className="relative w-full h-48">
               <Image
