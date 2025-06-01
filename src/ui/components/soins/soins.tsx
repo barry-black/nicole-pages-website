@@ -11,6 +11,8 @@ interface Soin {
   description: string;
   image: string;
   objectPosition?: string;
+  quote?: string;
+  author?: string;
 }
 
 export function Soins() {
@@ -26,6 +28,9 @@ En état modifié de conscience, vous explorez vos blocages et automatismes, ouv
 Elle est particulièrement efficace pour gérer le stress, l’anxiété, les phobies, les troubles du sommeil et les dépendances.
       `,
       image: "/assets/images/hypnose.webp",
+      quote:
+        "Ce que l’on ne veut pas savoir de soi-même finit par arriver de l’extérieur comme un destin.",
+      author: "Carl Gustav Jung",
     },
     {
       id: "pnl",
@@ -36,6 +41,9 @@ Grâce à des techniques concrètes, elle vous permet d'améliorer vos relations
       `,
       image: "/assets/images/pnl.png",
       objectPosition: "center 40%",
+      quote:
+        "Ce n’est pas l’événement qui compte, mais la manière dont on y réagit.",
+      author: "Épictète",
     },
     {
       id: "coaching",
@@ -46,6 +54,9 @@ C'est une démarche active, bienveillante, qui vous reconnecte à vos ressources
       `,
       image: "/assets/images/coaching.png",
       objectPosition: "center 40%",
+      quote:
+        "On ne peut rien enseigner à un homme ; on peut seulement l’aider à le découvrir en lui-même.",
+      author: "Galilée",
     },
     {
       id: "dream",
@@ -57,6 +68,8 @@ C’est un outil novateur et sensoriel pour explorer l’esprit autrement.
       `,
       image: "/assets/images/dream.png",
       objectPosition: "center 40%",
+      quote: "Les rêves sont la littérature du sommeil.",
+      author: "Jean Cocteau",
     },
     {
       id: "reiki",
@@ -67,6 +80,8 @@ Par imposition des mains, l’énergie universelle circule à nouveau librement,
 Une séance invite à une profonde détente et un recentrage intérieur.
       `,
       image: "/assets/images/reiki.webp",
+      quote: "L’énergie suit la pensée, alors pensez positivement.",
+      author: "Louise Hay",
     },
   ];
 
@@ -82,7 +97,8 @@ Une séance invite à une profonde détente et un recentrage intérieur.
           Soins proposés
         </Typography>
         <p className="text-gray-600 mt-4 leading-relaxed text-sm">
-          Les approches proposées s’inscrivent dans une démarche complémentaire au soin médical classique, sans jamais s’y substituer.
+          Les approches proposées s’inscrivent dans une démarche complémentaire
+          au soin médical classique, sans jamais s’y substituer.
         </p>
       </div>
 
@@ -115,11 +131,15 @@ Une séance invite à une profonde détente et un recentrage intérieur.
         <Modal soin={soins[activeSoin]} onClose={() => setActiveSoin(null)} />
       )}
 
-      <section className="text-center my-12">
-        <blockquote className="text-xl md:text-2xl font-semibold text-[var(--color-ocean-blue)] mb-2">
-          “L’inconscient parle. La PNL traduit. L’hypnose transforme.”
-        </blockquote>
-      </section>
+<section className="text-center my-12 px-6">
+  <blockquote className="text-xl md:text-2xl font-semibold text-[var(--color-ocean-blue)] mb-4">
+    « Il suffit parfois d’un souffle, d’une lumière, d’un regard intérieur, d’un mot juste ou d’un silence… pour que tout commence à changer. »
+  </blockquote>
+  <p className="text-lg md:text-xl text-[var(--color-ocean-blue)] font-medium">
+    Et si c’était maintenant ?
+  </p>
+</section>
+
     </section>
   );
 }

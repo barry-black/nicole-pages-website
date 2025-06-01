@@ -7,6 +7,8 @@ interface ModalProps {
     title: string;
     description: string;
     image: string;
+    quote?: string;
+    author?: string;
   };
   onClose: () => void;
 }
@@ -17,13 +19,11 @@ export function Modal({ soin, onClose }: ModalProps) {
   useEffect(() => {
     setIsVisible(true);
 
-    // Ajoute l’état modal, sans quitter la page
     const currentUrl = new URL(window.location.href);
     currentUrl.searchParams.set("modal", soin.id);
     window.history.pushState({ modal: soin.id }, "", currentUrl.toString());
 
     const handlePopState = () => {
-      // Si on revient en arrière, on ferme la modale
       setIsVisible(false);
       setTimeout(() => {
         onClose();
@@ -38,7 +38,6 @@ export function Modal({ soin, onClose }: ModalProps) {
   }, [soin.id, onClose]);
 
   const handleClose = () => {
-    // Retire le paramètre ?modal sans naviguer
     const currentUrl = new URL(window.location.href);
     currentUrl.searchParams.delete("modal");
     window.history.pushState({}, "", currentUrl.toString());
@@ -94,9 +93,18 @@ export function Modal({ soin, onClose }: ModalProps) {
 
           <div className="border-t border-gray-200 pt-4">
             <p className="whitespace-pre-line text-gray-700 leading-relaxed text-[17px]">
-            {soin.description.trim()}
-          </p>
+              {soin.description.trim()}
+            </p>
           </div>
+
+          {soin.quote && soin.author && (
+            <div className="pt-6 border-t border-gray-100 text-center">
+              <blockquote className="italic text-gray-500 text-base">
+                “{soin.quote}”
+              </blockquote>
+              <p className="text-sm text-gray-400 mt-2">— {soin.author}</p>
+            </div>
+          )}
         </div>
       </div>
     </div>
