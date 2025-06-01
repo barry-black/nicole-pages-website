@@ -8,10 +8,15 @@ import Image from "next/image";
 import { Seo } from "@/ui/components/seo/seo";
 import { Navigation } from "@/ui/components/navigation/navigation";
 import { Footer } from "@/ui/components/footer/footer";
+import { Button } from "@/ui/design-system/button/button";
+
+/* Hooks */
+import { useNavigateAndScroll } from "@/hooks/useNavigateAndScroll";
 
 export default function TarifsPage() {
   const [menuOpen, setMenuOpen] = useState(false);
   const toggleMenu = () => setMenuOpen((prev) => !prev);
+  const navigateAndScroll = useNavigateAndScroll();
 
   return (
     <>
@@ -30,14 +35,35 @@ export default function TarifsPage() {
             <h2 className="text-3xl md:text-4xl font-semibold text-[var(--color-ocean-blue)]">
               Tarifs
             </h2>
-            <ul className="space-y-4 text-xl md:text-2xl font-medium text-[var(--color-sky-blue)]">
-              <li>1 séance : 60€</li>
-              <li>4 séances : 200€</li>
-            </ul>
+<ul className="space-y-4 text-xl md:text-2xl font-medium text-[var(--color-sky-blue)]">
+  <li>
+    <strong>Séance bien-être individuelle</strong> : 60€
+  </li>
+  <li>
+    <strong>Libération tabac (séance unique ~3h)</strong> : 80€
+  </li>
+  <li>
+    <strong>Forfait accompagnement (4+ séances)</strong> : 200€
+  </li>
+</ul>
+
+<p className="text-sm text-gray-500 mt-4 leading-relaxed max-w-prose mx-auto">
+  Le forfait accompagnement est pensé pour un travail en profondeur. Il inclut un minimum de 4 séances, sans coût supplémentaire si quelques séances supplémentaires s’avèrent nécessaires.
+</p>
+          </div>
+
+          {/* Bouton */}
+          <div className="pt-10">
+            <Button
+              variant="callAction"
+              onClick={() => navigateAndScroll("contact")}
+            >
+              Prendre rendez-vous
+            </Button>
           </div>
         </section>
 
-        {/* Image en bas de page */}
+        {/* Image décorative bas de page */}
         <div className="relative w-full h-[300px] sm:h-[350px] md:h-[400px] overflow-hidden z-0">
           <div className="absolute top-0 left-0 w-full h-40 bg-gradient-to-b from-white to-transparent z-10 pointer-events-none" />
           <Image
