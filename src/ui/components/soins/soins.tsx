@@ -119,11 +119,11 @@ Comme toute pratique holistique, le Reiki permettrait :
         <Modal soin={soins[activeSoin]} onClose={() => setActiveSoin(null)} />
       )}
 
-              <section className="text-center my-8">
-          <blockquote className="text-2xl font-semibold text-[var(--color-ocean-blue)] mb-2">
-            “L’inconscient parle. La PNL traduit. L’hypnose transforme.”
-          </blockquote>
-        </section>
+      <section className="text-center my-8">
+        <blockquote className="text-2xl font-semibold text-[var(--color-ocean-blue)] mb-2">
+          “L’inconscient parle. La PNL traduit. L’hypnose transforme.”
+        </blockquote>
+      </section>
     </section>
   );
 }
