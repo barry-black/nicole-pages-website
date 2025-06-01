@@ -9,7 +9,7 @@ export const Footer = () => {
         ©2025 by Nicole Pagès | Tous droits réservés
       </p>
       <p>
-        Sainte Livrade sur Lot | contact@nicolepages.com
+        Sainte Livrade sur Lot | nicolepages.therapie@gmail.com
       </p>
       <p>
         <Link href="/design-system" className="underline hover:text-gray-200 mx-2">
