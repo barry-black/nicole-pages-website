@@ -21,7 +21,7 @@ export const Navigation = forwardRef<HTMLElement, NavigationProps>(
   ({ menuOpen, toggleMenu }, ref) => {
     const pathname = usePathname();
     const router = useRouter();
-    const navInnerRef = useRef<HTMLElement>(null);
+    const navInnerRef = useRef<HTMLDivElement>(null);
     const [compact, setCompact] = useState(false);
 
   // Détection responsive landscape mobile
