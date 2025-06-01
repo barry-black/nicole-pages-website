@@ -3,10 +3,18 @@ import Image from "next/image";
 import { Spinner } from "../spinner/spinner";
 
 interface Props {
-  variant?: "topMenu" | "info" | "callAction" | "disabled" | "ico";
-  icon?: string;
+  variant?:
+    | "topMenu"
+    | "info"
+    | "callAction"
+    | "disabled"
+    | "ico"
+    | "callPhone"
+    | "sendMessage";
+  icon?: string | React.ReactNode;
   isLoading?: boolean;
   children?: React.ReactNode;
+  type?: "button" | "submit" | "reset";
   onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
 
@@ -16,6 +24,7 @@ export const Button = ({
   isLoading,
   children,
   onClick,
+  type = "button", // défaut = "button"
 }: Props) => {
   let variantStyles: string = "";
 
@@ -35,11 +44,17 @@ export const Button = ({
     case "ico":
       variantStyles = "btn btn-ico";
       break;
+    case "callPhone":
+      variantStyles = "btn btn-callPhone";
+      break;
+    case "sendMessage":
+      variantStyles = "btn btn-sendMessage";
+      break;
   }
 
   return (
     <button
-      type="button"
+      type={type}
       className={clsx(
         "whitespace-nowrap",
         variantStyles,
@@ -70,12 +85,25 @@ export const Button = ({
       )}
 
       <div className={clsx(isLoading && "invisible")}>
-        {icon ? (
+        {variant === "callPhone" && icon ? (
+          <div className="flex items-center gap-2 justify-center">
+            {typeof icon === "string" ? (
+              <Image src={icon} alt="Icon" width={20} height={20} />
+            ) : (
+              icon
+            )}
+            <span>{children}</span>
+          </div>
+        ) : icon ? (
           <span className="relative flex items-center">
             {children}
-            <span className="icon-container">
-              <Image src={icon} alt="Icon" width={85} height={85} />
-            </span>
+            {typeof icon === "string" ? (
+              <span className="icon-container">
+                <Image src={icon} alt="Icon" width={85} height={85} />
+              </span>
+            ) : (
+              <span className="icon-container">{icon}</span>
+            )}
           </span>
         ) : (
           children

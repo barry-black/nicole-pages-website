@@ -30,10 +30,7 @@ export const Accueil = ({ navHeight }: AccueilProps) => {
           Thérapeute
         </Typography>
         <Typography variant="m-88-shadow" theme="white" weight="semibold">
-          Hypnose PNL
-        </Typography>
-        <Typography variant="m-88-shadow" theme="white" weight="semibold">
-          Coaching Reiki
+          Hypnose PNL Coaching Reiki
         </Typography>
       </div>
     </section>

@@ -93,7 +93,6 @@ export const Typography = ({
   return (
     <Component
       className={clsx(
-        "whitespace-nowrap",
         variantStyles,
         colorStyles,
         weight === "regular" && "font-normal",

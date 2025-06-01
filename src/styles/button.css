@@ -148,4 +148,77 @@
         }
     }
 
+    .btn-callPhone {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        /* espace entre icône et texte */
+        padding: 14px 28px;
+        border-radius: 9999px;
+        font-size: 18px;
+        font-weight: 600;
+        background-color: var(--color-ocean-blue);
+        color: white;
+        border: none;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .btn-callPhone svg {
+        width: 20px;
+        height: 20px;
+        flex-shrink: 0;
+        vertical-align: middle;
+        transition: transform 0.3s ease;
+        transform-origin: center;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+        .btn-callPhone:hover {
+            background-color: var(--color-sky-blue);
+            transform: scale(1.05);
+        }
+    }
+
+    @media (hover: none) and (pointer: coarse) {
+        .btn-callPhone:active {
+            background-color: var(--color-sky-blue);
+            transform: scale(1.03);
+        }
+    }
+
+    .btn-sendMessage {
+        background-color: black;
+        color: white;
+        padding: 16px 40px;
+        border-radius: 9999px;
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 1.5;
+        border: 1px solid black;
+        transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+        width: 100%;
+        max-width: 360px;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+        .btn-sendMessage:hover {
+            background: linear-gradient(135deg, #eaeaea, #f7f7f7);
+            color: #333;
+            border-color: #ccc;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transform: scale(1.03);
+        }
+    }
+
+    @media (hover: none) and (pointer: coarse) {
+        .btn-sendMessage:active {
+            background: linear-gradient(135deg, #eaeaea, #f7f7f7);
+            color: #333;
+            border-color: #ccc;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transform: scale(1.03);
+        }
+    }
 }
