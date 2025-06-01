@@ -21,6 +21,41 @@ export function Soins() {
 
   const soins: Soin[] = [
     {
+      id: "hypnose",
+      title: "Hypnose",
+      description: `
+Elle permet un accès direct à l’inconscient, ce réservoir de mémoires, d’émotions et de solutions. En état modifié de conscience, vous explorez vos blocages, vos automatismes, et ouvrez la voie à des transformations durables — en douceur, à votre rythme.
+      `,
+      image: "/assets/images/hypnose.webp",
+    },
+    {
+      id: "pnl",
+      title: "PNL",
+      description: `
+Elle agit comme une cartographie de votre fonctionnement mental, émotionnel et comportemental. Grâce à des techniques précises, vous reprenez le pouvoir sur vos pensées, vos réactions et vos choix. C’est un outil de changement rapide, concret, orienté solutions.
+      `,
+      image: "/assets/images/pnl.png",
+      objectPosition: "center 40%",
+    },
+    {
+      id: "coaching",
+      title: "Coaching",
+      description: `
+Le coaching apporte une dynamique d’action. Il vous aide à clarifier vos objectifs, à identifier vos freins et à poser des pas concrets vers le changement. Il s’appuie sur vos forces et vos valeurs pour faire émerger une direction alignée avec qui vous êtes vraiment.
+      `,
+      image: "/assets/images/roro.png",
+      objectPosition: "center 40%",
+    },
+    {
+      id: "dream",
+      title: "Dream Machine",
+      description: `
+Dream Machine
+      `,
+      image: "/assets/images/roro.png",
+      objectPosition: "center 40%",
+    },
+    {
       id: "reiki",
       title: "Reiki",
       description: `
@@ -34,37 +69,6 @@ Comme toute pratique holistique, le Reiki permettrait :
 • de soutenir le potentiel de guérison
       `,
       image: "/assets/images/reiki.webp",
-    },
-    {
-      id: "hypnose",
-      title: "Hypnose",
-      description: `
-Apparue au XVIIème siècle, l’hypnose ericksonienne est une manière douce et efficace d’accéder à notre inconscient, véritable réservoir de ressources, afin d’évoluer et de se « soigner » de la meilleure façon possible.
-
-Je vous propose un accompagnement adapté et personnalisé basé sur la confiance et le respect de votre identité, de vos valeurs et de votre histoire.
-
-L'hypnose permet :
-• la gestion mentale  
-• la confiance et l’estime de soi  
-• les phobies et troubles de l’anxiété  
-• l’aide à la concentration  
-• la gestion du sommeil
-      `,
-      image: "/assets/images/hypnose.webp",
-    },
-    {
-      id: "pnl",
-      title: "PNL",
-      description: `
-La PNL (Programmation Neuro-linguistique) est une discipline qui s’inscrit dans le champ des sciences humaines. Elle est un modèle qui permet à chacun de se réaliser dans sa vie personnelle et professionnelle.
-
-Elle permet de :
-• savoir comment gérer votre stress et agir sur la nature de vos émotions pour vivre harmonieusement avec vous-même et votre entourage  
-• comprendre et maîtriser l’excellence de ceux qui réussissent dans des domaines aussi variés que le sport, l’entreprise, la pédagogie, la thérapie, le social…  
-• acquérir des apprentissages clés pour tous ceux qui sont dans des métiers d’accompagnement ou en relation avec autrui
-      `,
-      image: "/assets/images/pnl.png",
-      objectPosition: "center 40%",
     },
   ];
 
@@ -114,6 +118,12 @@ Elle permet de :
       {activeSoin !== null && (
         <Modal soin={soins[activeSoin]} onClose={() => setActiveSoin(null)} />
       )}
+
+              <section className="text-center my-8">
+          <blockquote className="text-2xl font-semibold text-[var(--color-ocean-blue)] mb-2">
+            “L’inconscient parle. La PNL traduit. L’hypnose transforme.”
+          </blockquote>
+        </section>
     </section>
   );
 }

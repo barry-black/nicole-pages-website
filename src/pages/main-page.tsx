@@ -56,7 +56,10 @@ export default function MainPage() {
         </section>
 
         {/* Qui suis-je */}
-        <section id="who-i-am" className="bg-[var(--color-pale-blue)] py-12 px-6">
+        <section
+          id="who-i-am"
+          className="bg-[var(--color-pale-blue)] py-12 px-6"
+        >
           <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-8 items-center">
             <div>
               <h2 className="text-[var(--color-ocean-blue)] text-2xl font-bold mb-4">
@@ -65,12 +68,17 @@ export default function MainPage() {
               <p className="mb-4">
                 Bonjour, je suis Nicole. <br />
                 <br />
-                Thérapeute diplômée en Hypnothérapie, Reiki et PNL, je suis là
-                pour vous aider à surmonter les épreuves de la vie et à mieux
-                vous comprendre. <br />
+                Thérapeute diplômée en Hypnothérapie, PNL Coaching et Reiki, je
+                suis là pour vous aider à surmonter les épreuves de la vie et à
+                mieux vous comprendre. <br />
                 <br />
-                Le bien-être de mes patients est ma priorité. J’attache une
-                grande importance à l’accueil et à la qualité d’écoute. <br />
+                Chaque personne porte en elle les ressources nécessaires à son
+                propre changement. Mon rôle est de vous accompagner à les
+                retrouver.
+                <br />
+                <br />À travers une approche bienveillante, je vous accompagne
+                dans un espace d’écoute active, où chaque mot, chaque émotion,
+                chaque silence a sa place. <br />
                 <br />
                 Plus qu’un métier, écouter, aider et conseiller a toujours été
                 pour moi une vocation.
@@ -121,16 +129,16 @@ export default function MainPage() {
                 text: "Nicole est très à l'écoute des gens et donne énormément de son temps et d'énergie. Elle n'est pas dans le jugement et pour moi c'est une personne magnifique qui aime les gens... Dès mon premier rdv, elle m'a beaucoup aidé et apaisé.",
               },
               {
-                name: "Christelle B.",
-                text: "Bienveillance et sérénité sont les mots qui résument le mieux chaque instant passé avec Nicole. Les séances d'hypnose que j'ai réalisé avec elle ont été très efficaces et enrichissantes puisque Nicole complète ces séances avec d'autres techniques de relaxation et des précieux conseils.",
+                name: "Cécile B.",
+                text: "Nicole est une personne très à l’écoute et empathique. Elle m’a accompagné dans un moment difficile et m’a permis de reprendre le contrôle sur ma vie avec beaucoup de bienveillance, c’est une magicienne !! Nicole est très professionnelle, elle prend le temps et saura mettre à profit son large champs de compétences pour vous aider dans votre démarche. Son aide m’est très précieuse et je la remercie. Je la recommande vivement !!",
               },
               {
-                name: "Emilie F.",
-                text: "Une expérience incroyable et très enrichissante, Nicole est une professionnelle très à l’écoute. Les bénéfices se font déjà ressentir. Elle m’a aider à contrôler mon anxiété. Merci encore pour votre aide précieuse!",
+                name: "Hélène O.",
+                text: "Nicole Pagès est plus qu'une thérapeute ❤️ Son écoute,sa bienveillance,sa douceur,sa joie et tant d'autres qualités peuvent la qualifier... Suite à un burn-out elle m'a permis de surmonter mes angoisses et de retrouver une qualité de vie incroyable. Vous pouvez y aller les yeux fermés, elle fera un travail super si vous êtes partant pour travailler vous aussi de votre côté 🤟 Je vous la recommande les yeux fermés 😜",
               },
               {
-                name: "Julia",
-                text: "Nicole est un véritable 'ange gardien'. On va la voir pour recharger nos batteries, avoir un soutien, des mots gentils; tout ce dont on a besoin pour aller de l'avant. Toujours avec un beau sourire et son regard bienveillant, elle est une thérapeute formidable ♥.",
+                name: "Laurianne D.",
+                text: "Avant de rencontrer Nicole j’étais submergée par des émotions que j’arrivais plus à contenir, j’avais perdu confiance en moi et j’avais donc déjà consulté plusieurs thérapeutes au fil des années sans grand résultat... Nicole est une personne au grand coeur dont la bienveillance se resent immédiatement, elle sait vous rassurer, vous mettre à l’aise et vous écoute attentivement pour mieux adapter ses séances selon vos besoins. Grâce à elle j’ai appris à mieux me connaître et surtout à m’accepter afin de pouvoir réavancer en me fixant de nouveaux objectifs de vie. Nicole c'est une véritable bouffée d'oxygène dans des moment de vie où l'on peine à reprendre son souffle. Vous l’aurez donc compris, Nicole est au top et j’ajouterais juste qu’il en va de même avec les plus jeunes, ma fille l’adore. Merci Nicole",
               },
             ].map((t, i) => (
               <div key={i}>
@@ -142,6 +150,7 @@ export default function MainPage() {
         </section>
 
         {/* Contact */}
+        /* Préférence téléphone (prise de RDV à valider par téléphone) */
         <section id="contact" className="bg-white py-12 px-6">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-2xl font-bold text-teal-600 mb-4">Contact</h2>
