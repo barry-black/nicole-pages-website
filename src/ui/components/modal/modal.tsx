@@ -16,9 +16,33 @@ export function Modal({ soin, onClose }: ModalProps) {
 
   useEffect(() => {
     setIsVisible(true);
-  }, []);
+
+    // Ajoute l’état modal, sans quitter la page
+    const currentUrl = new URL(window.location.href);
+    currentUrl.searchParams.set("modal", soin.id);
+    window.history.pushState({ modal: soin.id }, "", currentUrl.toString());
+
+    const handlePopState = () => {
+      // Si on revient en arrière, on ferme la modale
+      setIsVisible(false);
+      setTimeout(() => {
+        onClose();
+      }, 300);
+    };
+
+    window.addEventListener("popstate", handlePopState);
+
+    return () => {
+      window.removeEventListener("popstate", handlePopState);
+    };
+  }, [soin.id, onClose]);
 
   const handleClose = () => {
+    // Retire le paramètre ?modal sans naviguer
+    const currentUrl = new URL(window.location.href);
+    currentUrl.searchParams.delete("modal");
+    window.history.pushState({}, "", currentUrl.toString());
+
     setIsVisible(false);
     setTimeout(() => {
       onClose();
@@ -70,8 +94,8 @@ export function Modal({ soin, onClose }: ModalProps) {
 
           <div className="border-t border-gray-200 pt-4">
             <p className="whitespace-pre-line text-gray-700 leading-relaxed text-[17px]">
-              {soin.description.trim()}
-            </p>
+            {soin.description.trim()}
+          </p>
           </div>
         </div>
       </div>
