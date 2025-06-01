@@ -1,7 +1,7 @@
 "use client";
 
 /* Public Library */
-import { useState, useEffect } from "react";
+import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 
@@ -24,13 +24,26 @@ export default function MainPage() {
   const searchParams = useSearchParams();
   const scrollToId = searchParams.get("scrollTo");
 
+  const navRef = useRef<HTMLElement>(null);
+  const [navHeight, setNavHeight] = useState(0);
+
   useEffect(() => {
     if (scrollToId) {
       scrollToSection(scrollToId);
-      // Nettoyage de l'URL sans recharger la page
       window.history.replaceState(null, "", window.location.pathname);
     }
   }, [scrollToId]);
+
+  useEffect(() => {
+    const updateNavHeight = () => {
+      if (navRef.current) {
+        setNavHeight(navRef.current.offsetHeight);
+      }
+    };
+    updateNavHeight();
+    window.addEventListener("resize", updateNavHeight);
+    return () => window.removeEventListener("resize", updateNavHeight);
+  }, []);
 
   return (
     <>
@@ -41,11 +54,10 @@ export default function MainPage() {
 
       <main className="text-gray-800">
         {/* Sticky Navbar */}
-        <Navigation menuOpen={menuOpen} toggleMenu={toggleMenu} />
+        <Navigation ref={navRef} menuOpen={menuOpen} toggleMenu={toggleMenu} />
 
         {/* Accueil */}
-        <Accueil />
-
+        <Accueil navHeight={navHeight} />
         <section className="text-center py-8 bg-white">
           <Button
             variant="callAction"

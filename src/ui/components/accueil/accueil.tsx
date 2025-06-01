@@ -3,11 +3,15 @@
 import Image from "next/image";
 import { Typography } from "@/ui/design-system/typography/typography";
 
-export const Accueil = () => {
+interface AccueilProps {
+  navHeight: number;
+}
+
+export const Accueil = ({ navHeight }: AccueilProps) => {
   return (
     <section
       className="relative overflow-hidden"
-      style={{ height: "calc(100vh - 64px)" }} // 64px = hauteur nav
+      style={{ height: `calc(100vh - ${navHeight}px)` }}
     >
       {/* Image de fond zoomée, centrée en bas à gauche, sans filtre */}
       <div className="absolute inset-0 z-0">
@@ -15,7 +19,7 @@ export const Accueil = () => {
           src="/assets/images/accueil.webp"
           alt="Arrière-plan Accueil"
           fill
-          className="object-cover scale-150 object-left-bottom"
+          className="object-cover object-left-bottom"
           priority
         />
       </div>
