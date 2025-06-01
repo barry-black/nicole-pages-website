@@ -27,7 +27,7 @@ export function Modal({ soin, onClose }: ModalProps) {
 
   return (
     <div
-      className={`fixed inset-0 z-50 flex items-center justify-center bg-white/20 backdrop-blur-sm transition-opacity duration-300 ${
+      className={`fixed inset-0 z-50 flex items-center justify-center bg-white/30 backdrop-blur-sm transition-opacity duration-300 ${
         isVisible ? "opacity-100" : "opacity-0"
       }`}
       onClick={handleClose}
@@ -35,9 +35,9 @@ export function Modal({ soin, onClose }: ModalProps) {
       {/* Bouton de fermeture */}
       <button
         onClick={handleClose}
-        className="fixed z-50 w-10 h-10 flex items-center justify-center bg-white rounded-full shadow-lg text-gray-700 text-xl font-bold hover:brightness-110 transition cursor-pointer"
+        className="fixed z-50 w-10 h-10 flex items-center justify-center bg-white rounded-full shadow-md text-gray-700 text-xl font-bold hover:brightness-110 transition cursor-pointer"
         style={{
-          top: "calc(env(safe-area-inset-top, 0px) + 2rem)",
+          top: "calc(env(safe-area-inset-top, 0px) + 1rem)",
           right: "1rem",
         }}
         aria-label="Fermer"
@@ -47,13 +47,13 @@ export function Modal({ soin, onClose }: ModalProps) {
 
       {/* Contenu modal */}
       <div
-        className={`relative bg-white rounded-xl shadow-lg w-full max-w-xl max-h-screen overflow-y-auto transform transition-transform duration-300 ${
+        className={`relative bg-white rounded-2xl shadow-xl w-full max-w-2xl max-h-[90vh] overflow-y-auto transform transition-transform duration-300 ${
           isVisible ? "scale-100" : "scale-95"
         }`}
         onClick={(e) => e.stopPropagation()}
       >
         {/* Image */}
-        <div className="relative h-48 w-full">
+        <div className="relative h-56 w-full rounded-t-2xl overflow-hidden">
           <Image
             src={soin.image}
             alt={soin.title}
@@ -63,11 +63,16 @@ export function Modal({ soin, onClose }: ModalProps) {
         </div>
 
         {/* Texte */}
-        <div className="p-6">
-          <h3 className="text-2xl font-bold mb-4">{soin.title}</h3>
-          <p className="whitespace-pre-line text-gray-700">
-            {soin.description.trim()}
-          </p>
+        <div className="p-6 md:p-8 text-left space-y-5">
+          <h3 className="text-2xl font-semibold text-[var(--color-ocean-blue)]">
+            {soin.title}
+          </h3>
+
+          <div className="border-t border-gray-200 pt-4">
+            <p className="whitespace-pre-line text-gray-700 leading-relaxed text-[17px]">
+              {soin.description.trim()}
+            </p>
+          </div>
         </div>
       </div>
     </div>
