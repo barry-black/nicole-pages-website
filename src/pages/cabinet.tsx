@@ -33,24 +33,37 @@ export default function CabinetPage() {
         <CabinetCarousel />
 
         {/* Bloc horaires + bouton */}
-        <section className="py-0 px-6 flex flex-col items-center bg-white">
-          <div className="max-w-prose text-center space-y-6">
-            <h2 className="text-2xl font-semibold text-[var(--color-ocean-blue)]">
-              Horaires
+        <section className="px-6 py-12 flex flex-col items-center bg-white">
+          <div className="max-w-xl w-full text-center space-y-8">
+            <h2 className="text-2xl md:text-3xl font-semibold text-[var(--color-ocean-blue)]">
+              Horaires d’ouverture
             </h2>
-            <ul className="space-y-2 text-lg font-medium text-[var(--color-sky-blue)]">
-              <li>lundi, jeudi et vendredi : de 08h00 à 20h00</li>
-              <li>mardi : de 13h00 à 20h00</li>
-            </ul>
-          </div>
 
-          <div className="my-10">
-            <Button
-              variant="callAction"
-              onClick={() => navigateAndScroll("contact")}
-            >
-              Prendre rendez-vous
-            </Button>
+            <div className="space-y-4 text-base md:text-xl font-medium text-[var(--color-sky-blue)] w-full">
+              {[
+                { jours: "Lundi, Jeudi & Vendredi", horaires: "08h00 – 20h00" },
+                { jours: "Mardi", horaires: "13h00 – 20h00" },
+              ].map(({ jours, horaires }, i) => (
+                <div
+                  key={i}
+                  className="flex justify-between items-start border-b pb-2 w-full"
+                >
+                  <span className="flex-1">{jours}</span>
+                  <span className="ml-4 whitespace-nowrap text-right">
+                    {horaires}
+                  </span>
+                </div>
+              ))}
+            </div>
+
+            <div className="pt-6">
+              <Button
+                variant="callAction"
+                onClick={() => navigateAndScroll("contact")}
+              >
+                Prendre rendez-vous
+              </Button>
+            </div>
           </div>
         </section>
 
