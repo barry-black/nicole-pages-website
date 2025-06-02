@@ -1,6 +1,9 @@
 "use client";
 
+/* Public Library */
 import Image from "next/image";
+
+/* Component */
 import { Typography } from "@/ui/design-system/typography/typography";
 
 interface AccueilProps {

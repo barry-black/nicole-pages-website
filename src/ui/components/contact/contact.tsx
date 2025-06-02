@@ -1,40 +1,76 @@
 "use client";
 
 /* Public Library */
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { PhoneIcon } from "@heroicons/react/24/outline";
 
 /* Component */
 import { Typography } from "@/ui/design-system/typography/typography";
 import { Button } from "@/ui/design-system/button/button";
+import { ModalConfirm } from "@/ui/components/modal/modalConfirm";
+
+/* Hook */
+import { usePhoneInput } from "@/hooks/usePhoneInput";
 
 export function Contact() {
   const formRef = useRef<HTMLFormElement>(null);
+  const phone = usePhoneInput();
+
+  const [showConfirm, setShowConfirm] = useState(false);
+  const [formData, setFormData] = useState<FormData | null>(null);
 
   const handleSend = (e: React.FormEvent) => {
     e.preventDefault();
     const form = formRef.current;
     if (!form) return;
 
-    const formData = new FormData(form);
-    const prenom = formData.get("prenom") as string;
-    const nom = formData.get("nom") as string;
-    const email = formData.get("email") as string;
-    const telephone = formData.get("telephone") as string;
-    const message = formData.get("message") as string;
+    const data = new FormData(form);
+    const prenom = data.get("prenom")?.toString().trim();
+    const nom = data.get("nom")?.toString().trim();
+    const message = data.get("message")?.toString().trim();
+    const cleanedPhone = phone.value.replace(/\D/g, "");
 
-    // Mail
+    if (!prenom || !nom || !message || !cleanedPhone) {
+      alert("Merci de renseigner les champs obligatoires (email non requis).");
+      return;
+    }
+
+    if (!/^0\d{9}$/.test(cleanedPhone)) {
+      alert(
+        "Merci d’indiquer un numéro de téléphone valide (10 chiffres commençant par 0)."
+      );
+      return;
+    }
+
+    data.set("telephone", cleanedPhone);
+    setFormData(data);
+    setShowConfirm(true);
+  };
+
+  const confirmSend = () => {
+    if (!formData) return;
+
+    const prenom = formData.get("prenom");
+    const nom = formData.get("nom");
+    const email = formData.get("email");
+    const telephone = formData.get("telephone");
+    const message = formData.get("message");
+
     const mailto = `mailto:nicolepages.therapie@gmail.com?subject=Prise de rendez-vous&body=${encodeURIComponent(
       `Bonjour Nicole,\n\nJe m'appelle ${prenom} ${nom}.\n\nEmail : ${email}\nTéléphone : ${telephone}\n\nMessage :\n${message}`
     )}`;
 
-    // SMS
     const sms = `sms:${telephone}?body=${encodeURIComponent(
       `Bonjour Nicole, j’ai envoyé un mail avec mes coordonnées et mon message :\n\n"${message}"`
     )}`;
 
     window.open(mailto);
     setTimeout(() => window.open(sms), 400);
+
+    setShowConfirm(false);
+    alert(
+      "Merci pour votre message. Nicole vous rappellera très prochainement pour convenir d’un rendez-vous."
+    );
   };
 
   return (
@@ -51,8 +87,8 @@ export function Contact() {
         </Typography>
 
         <p className="text-lg text-gray-700 mb-6">
-          Pour toute prise de rendez-vous, un échange téléphonique est
-          nécessaire afin de valider ensemble le créneau et vos besoins.
+          Un appel est nécessaire pour convenir ensemble d’un rendez-vous adapté
+          à vos besoins.
         </p>
 
         <div className="flex flex-col items-center mb-8">
@@ -68,21 +104,10 @@ export function Contact() {
           </p>
         </div>
 
-        <div className="text-left max-w-xl mx-auto">
-          <p className="mb-2 font-semibold text-gray-800">
-            Adresse du cabinet :
-          </p>
-          <p className="text-gray-700 mb-6">
-            Le Kube - Avenue d’Agen
-            <br />
-            47110 Sainte-Livrade-sur-Lot
-          </p>
-
-          <p className="text-sm text-gray-500 italic">
-            Vous pouvez également me laisser un message via le formulaire
-            ci-dessous. Je vous rappellerai dans les plus brefs délais.
-          </p>
-        </div>
+        <p className="text-sm text-gray-500 italic">
+          Vous pouvez aussi me laisser un message ici, je vous contacterai dès
+          que possible.
+        </p>
 
         <form
           ref={formRef}
@@ -106,31 +131,47 @@ export function Contact() {
           <input
             name="email"
             type="email"
-            placeholder="Adresse Mail"
+            placeholder="Adresse mail (facultatif)"
             className="border p-3 rounded md:col-span-2"
-            required
           />
-          <input
-            name="telephone"
-            type="text"
-            placeholder="Téléphone"
-            className="border p-3 rounded md:col-span-2"
-            required
-          />
+          <input name="telephone" {...phone.inputProps} />
           <textarea
             name="message"
             rows={4}
-            placeholder="Votre Message..."
+            placeholder="Votre message..."
             className="border p-3 rounded md:col-span-2"
             required
           />
           <div className="md:col-span-2 flex justify-center">
             <Button type="submit" variant="sendMessage">
-              Envoyer
+              Envoyer mon message
             </Button>
           </div>
         </form>
+
+        <div className="mt-10 text-left max-w-xl mx-auto">
+          <p className="mb-2 font-semibold text-gray-800">
+            Adresse du cabinet :
+          </p>
+          <p className="text-gray-700">
+            Le Kube - Avenue d’Agen
+            <br />
+            47110 Sainte-Livrade-sur-Lot
+          </p>
+
+          <p className="mt-4 font-semibold text-gray-800">Téléphone :</p>
+          <p className="text-gray-700 mb-4">06 13 56 99 21</p>
+        </div>
       </div>
+
+      {showConfirm && (
+        <ModalConfirm
+          onCancel={() => setShowConfirm(false)}
+          onConfirm={confirmSend}
+          title="Souhaitez-vous envoyer ce message ?"
+          message="Nicole vous rappellera très prochainement pour convenir avec vous d’un rendez-vous adapté à vos besoins."
+        />
+      )}
     </section>
   );
 }
