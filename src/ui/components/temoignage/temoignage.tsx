@@ -20,7 +20,14 @@ const testimonials = [
     name: "Laurianne D.",
     text: "Avant de rencontrer Nicole j’étais submergée par des émotions que j’arrivais plus à contenir, j’avais perdu confiance en moi et j’avais donc déjà consulté plusieurs thérapeutes au fil des années sans grand résultat... Nicole est une personne au grand cœur dont la bienveillance se ressent immédiatement. Grâce à elle j’ai appris à mieux me connaître et surtout à m’accepter afin de pouvoir réavancer en me fixant de nouveaux objectifs. Nicole c'est une véritable bouffée d'oxygène dans des moments de vie où l'on peine à reprendre son souffle. Ma fille l’adore aussi. Merci Nicole.",
   },
-  // Ajoutez d'autres témoignages ici
+  {
+    name: "Agnieszka L.",
+    text: "Si vous êtes au moment de votre vie où vous chercher à reprendre votre destin en main, n'hésitez pas ! Foncez ! Nicole, sera la pour vous guider avec une perfection inégale, avec son énergie positive et son sourire remplie de douceur et d'amour pour son prochain. Pour ma famille et moi, Nicole est un cadeau de ciel qui a apparu au bon moment de ma vie. MERCI !",
+  },
+  {
+    name: "Elodie D.",
+    text: "Si vous avez besoin d'aide, alors foncez. Nicole est une incroyable personne, elle apporte un soutien inconditionnel et quand on sort de ses séances, on a appris tellement des choses sur nous même. Merci encore pour votre aide.",
+  },
 ];
 
 export const Temoignages = () => {
