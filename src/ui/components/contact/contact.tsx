@@ -8,6 +8,7 @@ import { PhoneIcon } from "@heroicons/react/24/outline";
 import { Typography } from "@/ui/design-system/typography/typography";
 import { Button } from "@/ui/design-system/button/button";
 import { ModalConfirm } from "@/ui/components/modal/modalConfirm";
+import { ModalSuccess } from "@/ui/components/modal/modalSuccess";
 
 /* Hook */
 import { usePhoneInput } from "@/hooks/usePhoneInput";
@@ -17,6 +18,7 @@ export function Contact() {
   const phone = usePhoneInput();
 
   const [showConfirm, setShowConfirm] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
   const [formData, setFormData] = useState<FormData | null>(null);
 
   const handleSend = (e: React.FormEvent) => {
@@ -63,7 +65,7 @@ export function Contact() {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            "X-Secret-Key": "FzR90j$z@mu9h4pJtZ!s", // même valeur que celle définie via CLI
+            "X-Secret-Key": "FzR90j$z@mu9h4pJtZ!s",
           },
           body: JSON.stringify({ prenom, nom, email, telephone, message }),
         }
@@ -76,9 +78,7 @@ export function Contact() {
       }
 
       setShowConfirm(false);
-      alert(
-        "Merci pour votre message. Nicole vous contactera très prochainement pour convenir d’un rendez-vous."
-      );
+      setShowSuccess(true);
     } catch (error) {
       console.error("Erreur lors de l'envoi de l'e-mail :", error);
       alert("Une erreur est survenue. Merci de réessayer plus tard.");
@@ -182,6 +182,14 @@ export function Contact() {
           onConfirm={confirmSend}
           title="Souhaitez-vous envoyer ce message ?"
           message="Nicole vous rappellera très prochainement pour convenir avec vous d’un rendez-vous adapté à vos besoins."
+        />
+      )}
+
+      {showSuccess && (
+        <ModalSuccess
+          onClose={() => setShowSuccess(false)}
+          title="Message envoyé !"
+          message="Nicole vous contactera très prochainement pour convenir d’un rendez-vous adapté à vos besoins."
         />
       )}
     </section>
