@@ -88,10 +88,6 @@ export const sendMail = onRequest(
               font-family: 'Helvetica Neue', Arial, sans-serif;
               box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
             ">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="height: 20px; width: 20px;">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M3 5a2 2 0 012-2h3.586a1 1 0 01.707.293l2.414 2.414a1 1 0 01.293.707V9a2 2 0 01-2 2H5a2 2 0 01-2-2V5zM21 14.586l-2.414-2.414a1 1 0 00-.707-.293H15a2 2 0 00-2 2v3.586a1 1 0 00.293.707l2.414 2.414a1 1 0 001.414 0l4.293-4.293a1 1 0 000-1.414z" />
-              </svg>
               Appeler ${prenom}
             </a>
         </div>
