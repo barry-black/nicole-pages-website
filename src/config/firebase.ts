@@ -1,4 +1,5 @@
 import { initializeApp } from "firebase/app";
+import { getFunctions } from "firebase/functions";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDIwvxbIWE7IKRUdGx_iUfaZLOPP76UiBs",
@@ -9,5 +10,10 @@ const firebaseConfig = {
   appId: "1:214671891231:web:50ef9a66480b8690666e2a"
 };
 
-// Initialize Firebase
-initializeApp(firebaseConfig);
+// ✅ Initialisation de l'application Firebase côté client
+const app = initializeApp(firebaseConfig);
+
+// ✅ Accès aux Cloud Functions, avec région définie (important pour éviter les erreurs)
+const functions = getFunctions(app, "europe-west1");
+
+export { app, functions };

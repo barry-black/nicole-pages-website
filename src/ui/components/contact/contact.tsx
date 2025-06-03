@@ -47,30 +47,42 @@ export function Contact() {
     setShowConfirm(true);
   };
 
-  const confirmSend = () => {
+  const confirmSend = async () => {
     if (!formData) return;
 
-    const prenom = formData.get("prenom");
-    const nom = formData.get("nom");
-    const email = formData.get("email");
-    const telephone = formData.get("telephone");
-    const message = formData.get("message");
+    const prenom = formData.get("prenom")?.toString();
+    const nom = formData.get("nom")?.toString();
+    const email = formData.get("email")?.toString();
+    const telephone = formData.get("telephone")?.toString();
+    const message = formData.get("message")?.toString();
 
-    const mailto = `mailto:nicolepages.therapie@gmail.com?subject=Prise de rendez-vous&body=${encodeURIComponent(
-      `Bonjour Nicole,\n\nJe m'appelle ${prenom} ${nom}.\n\nEmail : ${email}\nTéléphone : ${telephone}\n\nMessage :\n${message}`
-    )}`;
+    try {
+      const response = await fetch(
+        "https://europe-west1-nicolepages-website.cloudfunctions.net/sendMail",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "X-Secret-Key": "FzR90j$z@mu9h4pJtZ!s", // même valeur que celle définie via CLI
+          },
+          body: JSON.stringify({ prenom, nom, email, telephone, message }),
+        }
+      );
 
-    const sms = `sms:${telephone}?body=${encodeURIComponent(
-      `Bonjour Nicole, j’ai envoyé un mail avec mes coordonnées et mon message :\n\n"${message}"`
-    )}`;
+      if (!response.ok) {
+        const errText = await response.text();
+        console.error("Réponse serveur :", errText);
+        throw new Error(`Erreur serveur (${response.status})`);
+      }
 
-    window.open(mailto);
-    setTimeout(() => window.open(sms), 400);
-
-    setShowConfirm(false);
-    alert(
-      "Merci pour votre message. Nicole vous rappellera très prochainement pour convenir d’un rendez-vous."
-    );
+      setShowConfirm(false);
+      alert(
+        "Merci pour votre message. Nicole vous contactera très prochainement pour convenir d’un rendez-vous."
+      );
+    } catch (error) {
+      console.error("Erreur lors de l'envoi de l'e-mail :", error);
+      alert("Une erreur est survenue. Merci de réessayer plus tard.");
+    }
   };
 
   return (
