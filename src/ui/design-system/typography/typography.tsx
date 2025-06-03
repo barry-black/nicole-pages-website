@@ -15,7 +15,7 @@ interface Props {
     | "m-40"
     | "m-88-shadow"
     | "m-96";
-  component?: "h1" | "h2" | "h3" | "h4" | "h5" | "div" | "p" | "span";
+  component?: "h1" | "h2" | "h3" | "h4" | "h5" | "div" | "p" | "span" | "blockquote";
   theme?: "black" | "white" | "pale-blue" | "ocean-blue";
   weight?: "regular" | "medium" | "semibold";
   className?: string;
