@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 
 export const ButterflyLoader = () => (
   <div className="fixed inset-0 z-50 flex items-center justify-center bg-white/80 backdrop-blur-sm">
@@ -13,11 +14,16 @@ export const ButterflyLoader = () => (
         </div>
 
         {/* Papillon blanc (image PNG) */}
-        <img
-          src="/assets/svg/papillon_blanc.png"
-          alt="Papillon"
-          className="w-24 h-24 z-10 pointer-events-none select-none animate-[var(--animate-wing-flap)]"
-        />
+        <div className="w-24 h-24 z-10 pointer-events-none select-none animate-[var(--animate-wing-flap)] relative">
+          <Image
+            src="/assets/svg/papillon_blanc.png"
+            alt="Papillon"
+            fill
+            sizes="96px"
+            style={{ objectFit: "contain" }}
+            priority
+          />
+        </div>
       </div>
 
       {/* Texte de chargement */}

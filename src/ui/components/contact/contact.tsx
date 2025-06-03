@@ -83,6 +83,9 @@ export function Contact() {
 
       setShowConfirm(false);
       setShowSuccess(true);
+
+      formRef.current?.reset(); // 🧽 Réinitialise les champs
+      phone.setValue(""); // 🧽 Réinitialise le champ téléphone
     } catch (error) {
       console.error("Erreur lors de l'envoi de l'e-mail :", error);
       alert("Une erreur est survenue. Merci de réessayer plus tard.");
@@ -152,7 +155,7 @@ export function Contact() {
             placeholder="Adresse mail (facultatif)"
             className="border p-3 rounded md:col-span-2"
           />
-          <input name="telephone" {...phone.inputProps} />
+          <input {...phone.inputProps} />
           <textarea
             name="message"
             rows={4}
