@@ -16,7 +16,7 @@ export const ButterflyLoader = () => (
         <img
           src="/assets/svg/papillon_blanc.png"
           alt="Papillon"
-          className="w-24 h-24 z-10 pointer-events-none select-none"
+          className="w-24 h-24 z-10 pointer-events-none select-none animate-[var(--animate-wing-flap)]"
         />
       </div>
 
