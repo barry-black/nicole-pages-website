@@ -9,6 +9,7 @@ import { Typography } from "@/ui/design-system/typography/typography";
 import { Button } from "@/ui/design-system/button/button";
 import { ModalConfirm } from "@/ui/components/modal/modalConfirm";
 import { ModalSuccess } from "@/ui/components/modal/modalSuccess";
+import { ButterflyLoader } from "@/ui/components/butterflyLoader/butterflyLoader";
 
 /* Hook */
 import { usePhoneInput } from "@/hooks/usePhoneInput";
@@ -20,6 +21,7 @@ export function Contact() {
   const [showConfirm, setShowConfirm] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
   const [formData, setFormData] = useState<FormData | null>(null);
+  const [isSending, setIsSending] = useState(false);
 
   const handleSend = (e: React.FormEvent) => {
     e.preventDefault();
@@ -58,6 +60,8 @@ export function Contact() {
     const telephone = formData.get("telephone")?.toString();
     const message = formData.get("message")?.toString();
 
+    setIsSending(true);
+
     try {
       const response = await fetch(
         "https://europe-west1-nicolepages-website.cloudfunctions.net/sendMail",
@@ -82,6 +86,8 @@ export function Contact() {
     } catch (error) {
       console.error("Erreur lors de l'envoi de l'e-mail :", error);
       alert("Une erreur est survenue. Merci de réessayer plus tard.");
+    } finally {
+      setIsSending(false);
     }
   };
 
@@ -192,6 +198,8 @@ export function Contact() {
           message="Nicole vous contactera très prochainement pour convenir d’un rendez-vous adapté à vos besoins."
         />
       )}
+
+      {isSending && <ButterflyLoader />}
     </section>
   );
 }

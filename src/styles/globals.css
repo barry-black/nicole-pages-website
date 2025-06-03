@@ -6,6 +6,7 @@
 @import "./typography.css";
 @import "./button.css";
 @import "./soins.css";
+@import "./butterflyLoader.css";
 
 @layer base {
     html {
