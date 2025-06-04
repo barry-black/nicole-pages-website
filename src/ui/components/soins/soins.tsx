@@ -27,7 +27,7 @@ L’hypnose thérapeutique est une méthode douce qui permet d’accéder à l�
 En état modifié de conscience, vous explorez vos blocages et automatismes, ouvrant la voie à des transformations durables, à votre rythme.
 Elle est particulièrement efficace pour gérer le stress, l’anxiété, les phobies, les troubles du sommeil et les dépendances.
       `,
-      image: "/assets/images/hypnose.webp",
+      image: "/assets/images/hypnose.png",
       quote:
         "Ce que l’on ne veut pas savoir de soi-même finit par arriver de l’extérieur comme un destin.",
       author: "Carl Gustav Jung",
@@ -79,7 +79,7 @@ Le Reiki est une pratique énergétique d’origine japonaise visant à rétabli
 Par imposition des mains, l’énergie universelle circule à nouveau librement, apaisant tensions, stress et fatigue.
 Une séance invite à une profonde détente et un recentrage intérieur.
       `,
-      image: "/assets/images/reiki.webp",
+      image: "/assets/images/reiki.png",
       quote: "L’énergie suit la pensée, alors pensez positivement.",
       author: "Louise Hay",
     },
