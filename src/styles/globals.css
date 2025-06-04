@@ -7,6 +7,7 @@
 @import "./button.css";
 @import "./soins.css";
 @import "./butterflyLoader.css";
+@import "./who-i-am.css";
 
 @layer base {
     html {

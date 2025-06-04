@@ -1,0 +1,12 @@
+@keyframes slide-light {
+  0% {
+    left: -75%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+.animate-slide-light {
+  animation: slide-light 1.8s ease-in-out forwards;
+}

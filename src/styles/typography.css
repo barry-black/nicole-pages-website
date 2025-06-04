@@ -21,8 +21,9 @@
     }
 
     .text-ds-40 {
-        font-size: 40px;
+        @apply text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px];
     }
+
 
     .text-ds-50 {
         font-size: 50px;
