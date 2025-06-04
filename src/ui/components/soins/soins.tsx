@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { Modal } from "@/ui/components/modal/modal";
 import { Typography } from "@/ui/design-system/typography/typography";
 
@@ -104,9 +105,13 @@ Une séance invite à une profonde détente et un recentrage intérieur.
 
       <div className="flex flex-wrap justify-center gap-8 max-w-6xl mx-auto">
         {soins.map((soin, i) => (
-          <div
+          <motion.div
             key={soin.id}
             onClick={() => setActiveSoin(i)}
+            initial={{ opacity: 0, y: 20, scale: 0.95 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.6, delay: i * 0.1 }}
+            viewport={{ once: true }}
             className="w-[300px] cursor-pointer bg-white rounded-xl shadow-md overflow-hidden transition-transform duration-300 hover:scale-[1.03] hover:shadow-lg text-center"
           >
             <div className="relative w-full h-48">
@@ -123,7 +128,7 @@ Une séance invite à une profonde détente et un recentrage intérieur.
                 {soin.title.split("–")[0].trim()}
               </h3>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
 
@@ -131,15 +136,22 @@ Une séance invite à une profonde détente et un recentrage intérieur.
         <Modal soin={soins[activeSoin]} onClose={() => setActiveSoin(null)} />
       )}
 
-<section className="text-center my-12 px-6">
-  <blockquote className="text-xl md:text-2xl font-semibold text-[var(--color-ocean-blue)] mb-4">
-    « Il suffit parfois d’un souffle, d’une lumière, d’un regard intérieur, d’un mot juste ou d’un silence… pour que tout commence à changer. »
-  </blockquote>
-  <p className="text-lg md:text-xl text-[var(--color-ocean-blue)] font-medium">
-    Et si c’était maintenant ?
-  </p>
-</section>
-
+      <motion.section
+        className="text-center my-12 px-6"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+      >
+        <blockquote className="text-xl md:text-2xl font-semibold text-[var(--color-ocean-blue)] mb-4">
+          « Il suffit parfois d’un souffle, d’une lumière, d’un regard
+          intérieur, d’un mot juste ou d’un silence… pour que tout commence à
+          changer. »
+        </blockquote>
+        <p className="text-lg md:text-xl text-[var(--color-ocean-blue)] font-medium">
+          Et si c’était maintenant ?
+        </p>
+      </motion.section>
     </section>
   );
 }
