@@ -14,7 +14,6 @@ import { WhoIAm } from "@/ui/components/who-i-am/who-i-am";
 import { Soins } from "@/ui/components/soins/soins";
 import { Temoignages } from "@/ui/components/temoignage/temoignage";
 import { Contact } from "@/ui/components/contact/contact";
-import { MapView } from "@/ui/components/map-view/map-view";
 import { Footer } from "@/ui/components/footer/footer";
 
 /* API */
@@ -91,9 +90,6 @@ export default function MainPage() {
 
         {/* Contact */}
         <Contact />
-
-        {/* Carte */}
-        <MapView />
 
         {/* Footer */}
         <Footer />

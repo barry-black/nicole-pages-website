@@ -3,13 +3,15 @@
 /* Public Library */
 import { useRef, useState } from "react";
 import { PhoneIcon } from "@heroicons/react/24/outline";
+import { motion } from "framer-motion";
 
-/* Component */
+/* Components */
 import { Typography } from "@/ui/design-system/typography/typography";
 import { Button } from "@/ui/design-system/button/button";
 import { ModalConfirm } from "@/ui/components/modal/modalConfirm";
 import { ModalSuccess } from "@/ui/components/modal/modalSuccess";
 import { ButterflyLoader } from "@/ui/components/butterflyLoader/butterflyLoader";
+import { MapView } from "@/ui/components/map-view/map-view";
 
 /* Hook */
 import { usePhoneInput } from "@/hooks/usePhoneInput";
@@ -84,8 +86,8 @@ export function Contact() {
       setShowConfirm(false);
       setShowSuccess(true);
 
-      formRef.current?.reset(); // 🧽 Réinitialise les champs
-      phone.setValue(""); // 🧽 Réinitialise le champ téléphone
+      formRef.current?.reset();
+      phone.setValue("");
     } catch (error) {
       console.error("Erreur lors de l'envoi de l'e-mail :", error);
       alert("Une erreur est survenue. Merci de réessayer plus tard.");
@@ -97,22 +99,37 @@ export function Contact() {
   return (
     <section id="contact" className="bg-white py-12 px-6">
       <div className="max-w-4xl mx-auto text-center px-4">
-        <Typography
-          variant="m-40"
-          theme="ocean-blue"
-          weight="semibold"
-          component="h2"
-          className="mb-4 mx-auto text-center leading-tight break-words max-w-[280px] sm:max-w-none"
+        {/* Titre animé */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
         >
-          Prendre rendez-vous
-        </Typography>
+          <Typography
+            variant="m-40"
+            theme="ocean-blue"
+            weight="semibold"
+            component="h2"
+            className="mb-4 mx-auto text-center leading-tight break-words max-w-[280px] sm:max-w-none"
+          >
+            Prendre rendez-vous
+          </Typography>
+        </motion.div>
 
         <p className="text-lg text-gray-700 mb-6">
           Un appel est nécessaire pour convenir ensemble d’un rendez-vous adapté
           à vos besoins.
         </p>
 
-        <div className="flex flex-col items-center mb-8">
+        {/* Bouton animé */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="flex flex-col items-center mb-8"
+        >
           <Button
             variant="callPhone"
             icon={<PhoneIcon className="w-5 h-5" />}
@@ -123,17 +140,22 @@ export function Contact() {
           <p className="mt-2 text-sm text-gray-600">
             Appels du lundi au vendredi, de 9h à 18h
           </p>
-        </div>
+        </motion.div>
 
         <p className="text-sm text-gray-500 italic">
           Vous pouvez aussi me laisser un message ici, je vous contacterai dès
           que possible.
         </p>
 
-        <form
+        {/* Formulaire animé */}
+        <motion.form
           ref={formRef}
           onSubmit={handleSend}
           className="grid gap-4 md:grid-cols-2 mt-6 max-w-xl mx-auto"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
         >
           <input
             name="prenom"
@@ -168,9 +190,16 @@ export function Contact() {
               Envoyer mon message
             </Button>
           </div>
-        </form>
+        </motion.form>
 
-        <div className="mt-10 text-left max-w-xl mx-auto">
+        {/* Bloc adresse animé */}
+        <motion.div
+          className="mt-10 text-left max-w-xl mx-auto"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+        >
           <p className="mb-2 font-semibold text-gray-800">
             Adresse du cabinet :
           </p>
@@ -182,7 +211,10 @@ export function Contact() {
 
           <p className="mt-4 font-semibold text-gray-800">Téléphone :</p>
           <p className="text-gray-700 mb-4">06 13 56 99 21</p>
-        </div>
+        </motion.div>
+
+        {/* Carte animée (déjà dans MapView) */}
+        <MapView />
       </div>
 
       {showConfirm && (
