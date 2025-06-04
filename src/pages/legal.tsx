@@ -8,13 +8,9 @@ import { Typography } from "@/ui/design-system/typography/typography";
 import { Navigation } from "@/ui/components/navigation/navigation";
 import { Footer } from "@/ui/components/footer/footer";
 
-/* Hooks */
-import { useNavigateAndScroll } from "@/hooks/useNavigateAndScroll";
-
 export default function LegalPage() {
   const [menuOpen, setMenuOpen] = useState(false);
   const toggleMenu = () => setMenuOpen((prev) => !prev);
-  const navigateAndScroll = useNavigateAndScroll();
 
   return (
     <main className="bg-white text-black">
@@ -33,7 +29,7 @@ export default function LegalPage() {
           </Typography>
 
           <p>
-            Siège social : Le Cube – Route d'Agen – 47110 Sainte-Livrade-sur-Lot
+            Siège social : Le Cube – Route d&apos;Agen – 47110 Sainte-Livrade-sur-Lot
           </p>
           <p className="mt-4">Contact téléphonique : 06 13 56 99 21</p>
           <p>
@@ -49,7 +45,7 @@ export default function LegalPage() {
           <p className="mt-4">
             Nicole Pagès est inscrite sous le numéro SIRET 75044186700017
             <br />
-            La TVA est non applicable conformément à l'article 293B du CGI
+            La TVA est non applicable conformément à l&apos;article 293B du CGI
           </p>
 
           <p className="mt-4">Directrice de la publication : Nicole PAGÈS</p>
