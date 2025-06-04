@@ -7,14 +7,15 @@ import { useSearchParams } from "next/navigation";
 /* Component */
 import { Seo } from "@/ui/components/seo/seo";
 import { Button } from "@/ui/design-system/button/button";
+import { Typography } from "@/ui/design-system/typography/typography";
 import { Navigation } from "@/ui/components/navigation/navigation";
 import { Accueil } from "@/ui/components/accueil/accueil";
 import { WhoIAm } from "@/ui/components/who-i-am/who-i-am";
 import { Soins } from "@/ui/components/soins/soins";
 import { Temoignages } from "@/ui/components/temoignage/temoignage";
 import { Contact } from "@/ui/components/contact/contact";
+import { MapView } from "@/ui/components/map-view/map-view";
 import { Footer } from "@/ui/components/footer/footer";
-import { Typography } from "@/ui/design-system/typography/typography";
 
 /* API */
 import { scrollToSection } from "@/api/scrollToSection";
@@ -90,6 +91,9 @@ export default function MainPage() {
 
         {/* Contact */}
         <Contact />
+
+        {/* Carte */}
+        <MapView />
 
         {/* Footer */}
         <Footer />
