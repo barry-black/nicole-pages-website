@@ -1,3 +1,4 @@
+import { useState } from "react";
 import clsx from "clsx";
 import Image from "next/image";
 import { Spinner } from "../spinner/spinner";
@@ -26,8 +27,9 @@ export const Button = ({
   onClick,
   type = "button", // défaut = "button"
 }: Props) => {
-  let variantStyles: string = "";
+  const [isTouched, setIsTouched] = useState(false);
 
+  let variantStyles: string = "";
   switch (variant) {
     case "topMenu":
       variantStyles = "btn btn-topMenu";
@@ -60,7 +62,8 @@ export const Button = ({
         variantStyles,
         isLoading && "pointer-events-none",
         variant === "disabled" ? "cursor-not-allowed" : "cursor-pointer",
-        "relative"
+        "relative",
+        isTouched && "pressed"
       )}
       disabled={variant === "disabled"}
       onClick={(e) => {
@@ -69,10 +72,10 @@ export const Button = ({
           e.stopPropagation();
           return;
         }
-        if (onClick) {
-          onClick(e);
-        }
+        onClick?.(e);
       }}
+      onTouchStart={() => setIsTouched(true)}
+      onTouchEnd={() => setTimeout(() => setIsTouched(false), 150)}
     >
       {isLoading && (
         <div className="absolute inset-0 flex items-center justify-center">

@@ -10,6 +10,7 @@
         padding: 24px 12px;
         border-radius: 8px;
         font-size: 24px;
+        touch-action: manipulation;
     }
 
     .btn-topMenu {
@@ -56,7 +57,6 @@
         border: 1px solid black;
     }
 
-    /* Desktop : hover classique */
     @media (hover: hover) and (pointer: fine) {
         .btn-callAction:hover {
             background: linear-gradient(135deg, #eaeaea, #f7f7f7);
@@ -67,10 +67,8 @@
         }
     }
 
-    /* Mobile : pas de hover, style sur active (= tap) */
     @media (hover: none) and (pointer: coarse) {
         .btn-callAction:hover {
-            /* désactive l'effet hover pour ne pas rester bloqué */
             background: black;
             color: white;
             border-color: black;
@@ -114,7 +112,6 @@
         right: -60px;
     }
 
-    /* -- Style compact pour header + bouton ico -- */
     .compact-header {
         padding-top: 8px !important;
         padding-bottom: 8px !important;
@@ -127,13 +124,10 @@
 
     .compact-header .icon-container {
         top: -45px !important;
-        /* plus haut qu'avant (-20px -> -28px) */
         right: -50px !important;
-        /* plus à droite qu'avant (-30px -> -40px) */
         transform: scale(0.5);
     }
 
-    /* -- Media Query en plus (sécurité responsive) -- */
     @media (max-width: 768px) and (orientation: landscape) {
         .btn-ico {
             font-size: 20px !important;
@@ -142,7 +136,6 @@
 
         .icon-container {
             top: -45px !important;
-            /* même ajustement que compact-header */
             right: -50px !important;
             transform: scale(0.5);
         }
@@ -153,7 +146,6 @@
         align-items: center;
         justify-content: center;
         gap: 0.5rem;
-        /* espace entre icône et texte */
         padding: 14px 28px;
         border-radius: 9999px;
         font-size: 18px;
@@ -182,7 +174,8 @@
     }
 
     @media (hover: none) and (pointer: coarse) {
-        .btn-callPhone:active {
+        .btn-callPhone:active,
+        .btn-callPhone.pressed {
             background-color: var(--color-sky-blue);
             transform: scale(1.03);
         }
@@ -220,5 +213,14 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
             transform: scale(1.03);
         }
+    }
+
+    /* ✅ Ajout pour effet tactile via React */
+    .pressed:not(.btn-ico):not(.btn-callPhone) {
+        transform: scale(1.03);
+        background: linear-gradient(135deg, #eaeaea, #f7f7f7);
+        color: #333 !important;
+        border-color: #ccc !important;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     }
 }
