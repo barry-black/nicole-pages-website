@@ -48,8 +48,8 @@ export default function DesignSystem() {
           <div className="flex flex-col gap-5 p-5 border border-white rounded">
             <Button variant="topMenu">les soins</Button>
             <Button variant="info">+ d&apos;info</Button>
-            <Button variant="callAction">Prendre rendez-vous</Button>
-            <Button variant="disabled">Prendre rendez-vous</Button>
+            <Button variant="callAction">Prendre rendez&#8209;vous</Button>
+            <Button variant="disabled">Prendre rendez&#8209;vous</Button>
             <Button variant="ico" icon="/assets/svg/papillon_blanc.png">
               Nicole Pagès
             </Button>
@@ -60,7 +60,7 @@ export default function DesignSystem() {
               + d&apos;info
             </Button>
             <Button isLoading variant="callAction">
-              Prendre rendez-vous
+              Prendre rendez&#8209;vous
             </Button>
           </div>
         </div>

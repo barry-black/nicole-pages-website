@@ -11,7 +11,7 @@ interface ModalSuccessProps {
 
 export function ModalSuccess({
   title = "Message envoyé !",
-  message = "Nicole vous contactera très prochainement pour convenir d’un rendez-vous adapté à vos besoins.",
+  message = "Nicole vous contactera très prochainement pour convenir d’un rendez&#8209;vous adapté à vos besoins.",
   onClose,
 }: ModalSuccessProps) {
   const [isVisible, setIsVisible] = useState(false);

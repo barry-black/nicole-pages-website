@@ -35,10 +35,10 @@ export default function LegalPage() {
           <p>
             Contact mail :{" "}
             <a
-              href="mailto:nicolepages.therapie@gmail.com"
+              href="mailto:nicolepages.therapies@gmail.com"
               className="underline"
             >
-              nicolepages.therapie@gmail.com
+              nicolepages.therapies@gmail.com
             </a>
           </p>
 
@@ -112,10 +112,10 @@ export default function LegalPage() {
           données vous concernant. Pour exercer ces droits, vous pouvez envoyer
           un e-mail à :
           <a
-            href="mailto:nicolepages.therapie@gmail.com"
+            href="mailto:nicolepages.therapies@gmail.com"
             className="underline ml-1"
           >
-            nicolepages.therapie@gmail.com
+            nicolepages.therapies@gmail.com
           </a>
         </p>
 

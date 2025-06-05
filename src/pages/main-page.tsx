@@ -65,7 +65,7 @@ export default function MainPage() {
             variant="callAction"
             onClick={() => scrollToSection("contact")}
           >
-            Prendre rendez-vous
+            Prendre rendez&#8209;vous
           </Button>
         </section>
 

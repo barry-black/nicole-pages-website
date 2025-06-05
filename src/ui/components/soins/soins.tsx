@@ -97,7 +97,7 @@ Une séance invite à une profonde détente et un recentrage intérieur.
         >
           Soins proposés
         </Typography>
-        <p className="text-gray-600 mt-4 leading-relaxed text-sm">
+        <p className="text-gray-600 mt-4 leading-relaxed text-base">
           Les approches proposées s’inscrivent dans une démarche complémentaire
           au soin médical classique, sans jamais s’y substituer.
         </p>

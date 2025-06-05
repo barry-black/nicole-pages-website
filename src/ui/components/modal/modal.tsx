@@ -20,6 +20,10 @@ export function Modal({ soin, onClose }: ModalProps) {
   useEffect(() => {
     setIsVisible(true);
 
+    // Empêche le scroll en arrière-plan
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
     const currentUrl = new URL(window.location.href);
     currentUrl.searchParams.set("modal", soin.id);
     window.history.pushState({ modal: soin.id }, "", currentUrl.toString());
@@ -35,6 +39,7 @@ export function Modal({ soin, onClose }: ModalProps) {
 
     return () => {
       window.removeEventListener("popstate", handlePopState);
+      document.body.style.overflow = originalOverflow; // 🔁 Restaure le scroll
     };
   }, [soin.id, onClose]);
 

@@ -113,12 +113,12 @@ export function Contact() {
             component="h2"
             className="mb-4 mx-auto text-center leading-tight break-words max-w-[280px] sm:max-w-none"
           >
-            Prendre rendez-vous
+            Prendre rendez&#8209;vous
           </Typography>
         </motion.div>
 
         <p className="text-lg text-gray-700 mb-6">
-          Un appel est nécessaire pour convenir ensemble d’un rendez-vous adapté
+          Un appel est nécessaire pour convenir ensemble d’un rendez&#8209;vous adapté
           à vos besoins.
         </p>
 
@@ -222,7 +222,7 @@ export function Contact() {
           onCancel={() => setShowConfirm(false)}
           onConfirm={confirmSend}
           title="Souhaitez-vous envoyer ce message ?"
-          message="Nicole vous rappellera très prochainement pour convenir avec vous d’un rendez-vous adapté à vos besoins."
+          message="Nicole vous rappellera très prochainement pour convenir avec vous d’un rendez&#8209;vous adapté à vos besoins."
         />
       )}
 
@@ -230,7 +230,7 @@ export function Contact() {
         <ModalSuccess
           onClose={() => setShowSuccess(false)}
           title="Message envoyé !"
-          message="Nicole vous contactera très prochainement pour convenir d’un rendez-vous adapté à vos besoins."
+          message="Nicole vous contactera très prochainement pour convenir d’un rendez&#8209;vous adapté à vos besoins."
         />
       )}
 

@@ -35,21 +35,23 @@ export default function TarifsPage() {
             <h2 className="text-3xl md:text-4xl font-semibold text-[var(--color-ocean-blue)]">
               Tarifs
             </h2>
-<ul className="space-y-4 text-xl md:text-2xl font-medium text-[var(--color-sky-blue)]">
-  <li>
-    <strong>Séance bien-être individuelle</strong> : 60€
-  </li>
-  <li>
-    <strong>Libération tabac (séance unique ~3h)</strong> : 80€
-  </li>
-  <li>
-    <strong>Forfait accompagnement (4+ séances)</strong> : 200€
-  </li>
-</ul>
+            <ul className="space-y-4 text-xl md:text-2xl font-medium text-[var(--color-sky-blue)]">
+              <li>
+                <strong>Séance bien-être individuelle</strong> : 60€
+              </li>
+              <li>
+                <strong>Séance ibération tabac</strong> : 80€
+              </li>
+              <li>
+                <strong>Forfait accompagnement</strong> : 200€
+              </li>
+            </ul>
 
-<p className="text-sm text-gray-500 mt-4 leading-relaxed max-w-prose mx-auto">
-  Le forfait accompagnement est pensé pour un travail en profondeur. Il inclut un minimum de 4 séances, sans coût supplémentaire si quelques séances supplémentaires s’avèrent nécessaires.
-</p>
+            <p className="text-sm text-gray-500 mt-4 leading-relaxed max-w-prose mx-auto">
+              Le forfait accompagnement est pensé pour un travail en profondeur.
+              Il inclut un minimum de 4 séances, sans coût supplémentaire si
+              quelques séances supplémentaires s’avèrent nécessaires.
+            </p>
           </div>
 
           {/* Bouton */}
@@ -58,7 +60,7 @@ export default function TarifsPage() {
               variant="callAction"
               onClick={() => navigateAndScroll("contact")}
             >
-              Prendre rendez-vous
+              Prendre rendez&#8209;vous
             </Button>
           </div>
         </section>

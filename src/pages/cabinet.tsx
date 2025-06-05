@@ -61,7 +61,7 @@ export default function CabinetPage() {
                 variant="callAction"
                 onClick={() => navigateAndScroll("contact")}
               >
-                Prendre rendez-vous
+                Prendre rendez&#8209;vous
               </Button>
             </div>
           </div>
