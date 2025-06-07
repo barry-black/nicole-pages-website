@@ -49,7 +49,7 @@ export const WhoIAm = () => {
 
           {/* Image agrandie */}
           <Image
-            src="/assets/images/photo_nicole.jpg"
+            src="/assets/images/photo-nicole.png"
             alt="Portrait Nicole"
             width={420}
             height={600}
