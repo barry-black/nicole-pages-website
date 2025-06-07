@@ -21,19 +21,6 @@ export function Soins() {
 
   const soins: Soin[] = [
     {
-      id: "hypnose",
-      title: "Hypnose – Plongez au cœur de votre inconscient",
-      description: `
-L’hypnose thérapeutique est une méthode douce qui permet d’accéder à l’inconscient, ce réservoir de ressources souvent inexploitées.
-En état modifié de conscience, vous explorez vos blocages et automatismes, ouvrant la voie à des transformations durables, à votre rythme.
-Elle est particulièrement efficace pour gérer le stress, l’anxiété, les phobies, les troubles du sommeil et les dépendances.
-      `,
-      image: "/assets/images/hypnose.png",
-      quote:
-        "Ce que l’on ne veut pas savoir de soi-même finit par arriver de l’extérieur comme un destin.",
-      author: "Carl Gustav Jung",
-    },
-    {
       id: "pnl",
       title: "PNL – Reprogrammez vos schémas mentaux",
       description: `
@@ -45,6 +32,19 @@ Grâce à des techniques concrètes, elle vous permet d'améliorer vos relations
       quote:
         "Ce n’est pas l’événement qui compte, mais la manière dont on y réagit.",
       author: "Épictète",
+    },
+    {
+      id: "hypnose",
+      title: "Hypnose – Plongez au cœur de votre inconscient",
+      description: `
+L’hypnose thérapeutique est une méthode douce qui permet d’accéder à l’inconscient, ce réservoir de ressources souvent inexploitées.
+En état modifié de conscience, vous explorez vos blocages et automatismes, ouvrant la voie à des transformations durables, à votre rythme.
+Elle est particulièrement efficace pour gérer le stress, l’anxiété, les phobies, les troubles du sommeil et les dépendances.
+      `,
+      image: "/assets/images/hypnose.png",
+      quote:
+        "Ce que l’on ne veut pas savoir de soi-même finit par arriver de l’extérieur comme un destin.",
+      author: "Carl Gustav Jung",
     },
     {
       id: "coaching",
@@ -60,6 +60,18 @@ C'est une démarche active, bienveillante, qui vous reconnecte à vos ressources
       author: "Galilée",
     },
     {
+      id: "reiki",
+      title: "Reiki – L’harmonie par l’énergie",
+      description: `
+Le Reiki est une pratique énergétique d’origine japonaise visant à rétablir l’équilibre du corps et de l’esprit.
+Par imposition des mains, l’énergie universelle circule à nouveau librement, apaisant tensions, stress et fatigue.
+Une séance invite à une profonde détente et un recentrage intérieur.
+      `,
+      image: "/assets/images/reiki.png",
+      quote: "L’énergie suit la pensée, alors pensez positivement.",
+      author: "Louise Hay",
+    },
+    {
       id: "dream",
       title: "Dream Machine – Voyage au cœur de la conscience",
       description: `
@@ -71,18 +83,6 @@ C’est un outil novateur et sensoriel pour explorer l’esprit autrement.
       objectPosition: "center 40%",
       quote: "Les rêves sont la littérature du sommeil.",
       author: "Jean Cocteau",
-    },
-    {
-      id: "reiki",
-      title: "Reiki – L’harmonie par l’énergie",
-      description: `
-Le Reiki est une pratique énergétique d’origine japonaise visant à rétablir l’équilibre du corps et de l’esprit.
-Par imposition des mains, l’énergie universelle circule à nouveau librement, apaisant tensions, stress et fatigue.
-Une séance invite à une profonde détente et un recentrage intérieur.
-      `,
-      image: "/assets/images/reiki.png",
-      quote: "L’énergie suit la pensée, alors pensez positivement.",
-      author: "Louise Hay",
     },
   ];
 
@@ -142,16 +142,7 @@ Une séance invite à une profonde détente et un recentrage intérieur.
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
-      >
-        <blockquote className="text-xl md:text-2xl font-semibold text-[var(--color-ocean-blue)] mb-4">
-          « Il suffit parfois d’un souffle, d’une lumière, d’un regard
-          intérieur, d’un mot juste ou d’un silence… pour que tout commence à
-          changer. »
-        </blockquote>
-        <p className="text-lg md:text-xl text-[var(--color-ocean-blue)] font-medium">
-          Et si c’était maintenant ?
-        </p>
-      </motion.section>
+      ></motion.section>
     </section>
   );
 }
