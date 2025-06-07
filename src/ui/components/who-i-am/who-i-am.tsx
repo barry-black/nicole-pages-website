@@ -55,11 +55,6 @@ export const WhoIAm = () => {
             height={600}
             className="relative rounded-xl shadow-2xl object-cover z-10"
           />
-
-          {/* Badge */}
-          <div className="mt-5 bg-white text-[#284a74] text-[14px] font-semibold px-5 py-1 rounded-full shadow border border-white/60 z-10">
-            Thérapeute certifiée
-          </div>
         </motion.div>
 
         {/* Bloc texte plus étroit */}
