@@ -9,12 +9,14 @@ export const CabinetCarousel = () => {
   const carouselRef = useRef<HTMLDivElement>(null);
 
   const images = [
-    "/assets/images/cabinet3.jpg",
-    "/assets/images/cabinet4.jpg",
-    "/assets/images/cabinet5.jpg",
-    "/assets/images/cabinet6.jpg",
-    "/assets/images/cabinet1.jpg",
-    "/assets/images/cabinet2.jpg"
+    "/assets/images/Cabinet/Image_4.png",
+    "/assets/images/Cabinet/Image_5.png",
+    "/assets/images/Cabinet/Image_6.png",
+    "/assets/images/Cabinet/Image_7.png",
+    "/assets/images/Cabinet/Image_8.png",
+    "/assets/images/Cabinet/Image_1.png",
+    "/assets/images/Cabinet/Image_2.png",
+    "/assets/images/Cabinet/Image_3.png",
   ];
 
   // Duplication pour boucle
