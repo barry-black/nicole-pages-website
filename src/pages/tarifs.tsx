@@ -40,7 +40,7 @@ export default function TarifsPage() {
                 <strong>Séance bien-être individuelle</strong> : 60€
               </li>
               <li>
-                <strong>Séance ibération tabac</strong> : 80€
+                <strong>Séance libération tabac</strong> : 80€
               </li>
               <li>
                 <strong>Forfait accompagnement</strong> : 200€
