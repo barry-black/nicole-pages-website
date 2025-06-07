@@ -89,7 +89,7 @@ export const CabinetCarousel = () => {
                 fill
                 style={{ objectFit: "cover" }}
                 sizes="(max-width: 768px) 90vw, 33vw"
-                priority={i < 3}
+                priority={i > 5}
               />
             </div>
           ))}
